@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "SuperAbp.RegionManagement": {
+      "path": "SuperAbp.RegionManagement.abpmdl.json"
+    }
+  }
+}

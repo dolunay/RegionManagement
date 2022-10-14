@@ -1,0 +1,111 @@
+{
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {},
+      "host": {}
+    }
+  },
+  "packages": {
+    "SuperAbp.RegionManagement.Domain.Shared": {
+      "path": "src/SuperAbp.RegionManagement.Domain.Shared/SuperAbp.RegionManagement.Domain.Shared.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.RegionManagement.Domain": {
+      "path": "src/SuperAbp.RegionManagement.Domain/SuperAbp.RegionManagement.Domain.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.RegionManagement.Application.Contracts": {
+      "path": "src/SuperAbp.RegionManagement.Application.Contracts/SuperAbp.RegionManagement.Application.Contracts.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.RegionManagement.Application": {
+      "path": "src/SuperAbp.RegionManagement.Application/SuperAbp.RegionManagement.Application.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.RegionManagement.EntityFrameworkCore": {
+      "path": "src/SuperAbp.RegionManagement.EntityFrameworkCore/SuperAbp.RegionManagement.EntityFrameworkCore.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.RegionManagement.MongoDB": {
+      "path": "src/SuperAbp.RegionManagement.MongoDB/SuperAbp.RegionManagement.MongoDB.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.RegionManagement.HttpApi": {
+      "path": "src/SuperAbp.RegionManagement.HttpApi/SuperAbp.RegionManagement.HttpApi.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.RegionManagement.HttpApi.Client": {
+      "path": "src/SuperAbp.RegionManagement.HttpApi.Client/SuperAbp.RegionManagement.HttpApi.Client.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.RegionManagement.TestBase": {
+      "path": "test/SuperAbp.RegionManagement.TestBase/SuperAbp.RegionManagement.TestBase.abppkg.json",
+      "folder": "test"
+    },
+    "SuperAbp.RegionManagement.EntityFrameworkCore.Tests": {
+      "path": "test/SuperAbp.RegionManagement.EntityFrameworkCore.Tests/SuperAbp.RegionManagement.EntityFrameworkCore.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "SuperAbp.RegionManagement.MongoDB.Tests": {
+      "path": "test/SuperAbp.RegionManagement.MongoDB.Tests/SuperAbp.RegionManagement.MongoDB.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "SuperAbp.RegionManagement.Domain.Tests": {
+      "path": "test/SuperAbp.RegionManagement.Domain.Tests/SuperAbp.RegionManagement.Domain.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "SuperAbp.RegionManagement.Application.Tests": {
+      "path": "test/SuperAbp.RegionManagement.Application.Tests/SuperAbp.RegionManagement.Application.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "SuperAbp.RegionManagement.HttpApi.Host": {
+      "path": "host/SuperAbp.RegionManagement.HttpApi.Host/SuperAbp.RegionManagement.HttpApi.Host.abppkg.json",
+      "folder": "host"
+    },
+    "SuperAbp.RegionManagement.Web": {
+      "path": "src/SuperAbp.RegionManagement.Web/SuperAbp.RegionManagement.Web.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.RegionManagement.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/SuperAbp.RegionManagement.HttpApi.Client.ConsoleTestApp/SuperAbp.RegionManagement.HttpApi.Client.ConsoleTestApp.abppkg.json",
+      "folder": "test"
+    },
+    "SuperAbp.RegionManagement.Web.Host": {
+      "path": "host/SuperAbp.RegionManagement.Web.Host/SuperAbp.RegionManagement.Web.Host.abppkg.json",
+      "folder": "host"
+    },
+    "SuperAbp.RegionManagement.AuthServer": {
+      "path": "host/SuperAbp.RegionManagement.AuthServer/SuperAbp.RegionManagement.AuthServer.abppkg.json",
+      "folder": "host"
+    },
+    "SuperAbp.RegionManagement.Host.Shared": {
+      "path": "host/SuperAbp.RegionManagement.Host.Shared/SuperAbp.RegionManagement.Host.Shared.abppkg.json",
+      "folder": "host"
+    },
+    "SuperAbp.RegionManagement.Web.Unified": {
+      "path": "host/SuperAbp.RegionManagement.Web.Unified/SuperAbp.RegionManagement.Web.Unified.abppkg.json",
+      "folder": "host"
+    },
+    "SuperAbp.RegionManagement.Blazor": {
+      "path": "src/SuperAbp.RegionManagement.Blazor/SuperAbp.RegionManagement.Blazor.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.RegionManagement.Blazor.Host": {
+      "path": "host/SuperAbp.RegionManagement.Blazor.Host/SuperAbp.RegionManagement.Blazor.Host.abppkg.json",
+      "folder": "host"
+    },
+    "SuperAbp.RegionManagement.Blazor.Server": {
+      "path": "src/SuperAbp.RegionManagement.Blazor.Server/SuperAbp.RegionManagement.Blazor.Server.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.RegionManagement.Blazor.WebAssembly": {
+      "path": "src/SuperAbp.RegionManagement.Blazor.WebAssembly/SuperAbp.RegionManagement.Blazor.WebAssembly.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.RegionManagement.Blazor.Server.Host": {
+      "path": "host/SuperAbp.RegionManagement.Blazor.Server.Host/SuperAbp.RegionManagement.Blazor.Server.Host.abppkg.json",
+      "folder": "host"
+    }
+  }
+}

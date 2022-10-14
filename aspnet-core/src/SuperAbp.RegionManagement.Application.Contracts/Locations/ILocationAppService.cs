@@ -1,0 +1,13 @@
+﻿using System;
+using System.Threading.Tasks;
+using Volo.Abp.Application.Dtos;
+using Volo.Abp.Application.Services;
+
+namespace Snow.RegionManagement.Locations;
+
+public interface ILocationAppService:IApplicationService
+{
+    Task<LocationListDto> GetAsync(Guid regionId);
+
+    Task<ListResultDto<LocationListDto>> GetListAsync(Guid[] regionIds);
+}

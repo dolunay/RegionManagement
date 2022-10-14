@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\common.props" />
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+        <RootNamespace>SuperAbp.RegionManagement</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Volo.Abp.VirtualFileSystem" Version="6.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="..\..\SuperAbp.RegionManagement.abpmdl.json" />
+      <EmbeddedResource Include="..\..\SuperAbp.RegionManagement.abpmdl.json" />
+    </ItemGroup>
+
+</Project>
