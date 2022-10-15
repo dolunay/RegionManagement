@@ -1,4 +1,4 @@
-﻿namespace Snow.RegionManagement.Districts
+﻿namespace SuperAbp.RegionManagement.Districts
 {
     public class DistrictConsts
     {

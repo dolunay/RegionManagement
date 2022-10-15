@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Volo.Abp.Domain.Entities;
 
-namespace Snow.RegionManagement.Locations
+namespace SuperAbp.RegionManagement.Locations
 {
     public class RegionLocation : Entity<Guid>
     {

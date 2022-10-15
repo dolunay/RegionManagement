@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Snow.RegionManagement.Districts;
+using SuperAbp.RegionManagement.Districts;
 
-namespace Snow.RegionManagement.Admin.Districts;
+namespace SuperAbp.RegionManagement.Admin.Districts;
 
 public class AreaAppService : RegionManagementAppService, IDistrictAppService
 {
@@ -14,7 +15,7 @@ public class AreaAppService : RegionManagementAppService, IDistrictAppService
         _areaRepository = areaRepository;
     }
 
-    public async Task<List<DistrictListDto>> GetChildrenAsync(int provinceId, int cityId)
+    public async Task<List<DistrictListDto>> GetChildrenAsync(Guid provinceId, Guid cityId)
     {
         var provinceQueryable = await _areaRepository.GetQueryableAsync();
         var provinces = await AsyncExecuter.ToListAsync(provinceQueryable

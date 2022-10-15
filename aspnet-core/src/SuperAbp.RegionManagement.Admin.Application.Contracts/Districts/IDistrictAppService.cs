@@ -1,6 +1,6 @@
 ﻿using Volo.Abp.Application.Services;
 
-namespace Snow.RegionManagement.Admin.Districts;
+namespace SuperAbp.RegionManagement.Admin.Districts;
 
 public interface IDistrictAppService : IApplicationService
 {

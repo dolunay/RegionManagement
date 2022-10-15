@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Volo.Abp.Settings;
 
-namespace Snow.RegionManagement.Regions
+namespace SuperAbp.RegionManagement.Regions
 {
     /// <summary>
     /// RegionSettingDefinitionProvider

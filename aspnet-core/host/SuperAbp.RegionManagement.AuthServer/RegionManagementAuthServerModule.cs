@@ -78,7 +78,7 @@ namespace SuperAbp.RegionManagement;
     typeof(AbpTenantManagementEntityFrameworkCoreModule),
     typeof(AbpTenantManagementApplicationModule),
     typeof(AbpTenantManagementHttpApiModule),
-    typeof(RegionManagementApplicationContractsModule),
+    typeof(SuperAbpRegionManagementApplicationContractsModule),
     typeof(AbpAspNetCoreSerilogModule),
     typeof(AbpSwashbuckleModule)
     )]

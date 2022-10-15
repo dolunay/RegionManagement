@@ -1,6 +1,6 @@
 ﻿using Volo.Abp.Application.Dtos;
 
-namespace Snow.RegionManagement.Admin.Provinces;
+namespace SuperAbp.RegionManagement.Admin.Provinces;
 
 public class ProvinceListDto : EntityDto<int>
 {

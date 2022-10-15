@@ -1,9 +1,9 @@
 ﻿using System;
-using Snow.RegionManagement.EntityFrameworkCore;
+using SuperAbp.RegionManagement.EntityFrameworkCore;
 using Volo.Abp.Domain.Repositories.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
 
-namespace Snow.RegionManagement.Provinces;
+namespace SuperAbp.RegionManagement.Provinces;
 
 public class EfCoreProvinceRepository : EfCoreRepository<IRegionManagementDbContext, Province, Guid>, IProvinceRepository
 {

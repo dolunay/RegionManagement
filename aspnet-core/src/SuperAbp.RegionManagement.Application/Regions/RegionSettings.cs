@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Snow.RegionManagement.Regions
+namespace SuperAbp.RegionManagement.Regions
 {
     public class RegionSettings
     {

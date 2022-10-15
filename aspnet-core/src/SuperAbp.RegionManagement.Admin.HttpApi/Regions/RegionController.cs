@@ -4,13 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 
-namespace Snow.RegionManagement.Admin.Regions
+namespace SuperAbp.RegionManagement.Admin.Regions
 {
     /// <summary>
     /// 区域管理
     /// </summary>
-    [RemoteService(Name = RegionManagementAdminRemoteServiceConsts.RemoteServiceName)]
-    [Area(RegionManagementAdminRemoteServiceConsts.ModuleName)]
+    [RemoteService(Name = RegionManagementRemoteServiceConsts.RemoteServiceName)]
+    [Area(RegionManagementRemoteServiceConsts.ModuleName)]
     [ControllerName("Region")]
     [Route("api/regions")]
     public class RegionController : RegionManagementController, IRegionAppService

@@ -12,7 +12,7 @@ namespace SuperAbp.RegionManagement;
     typeof(AbpAutofacModule),
     typeof(AbpTestBaseModule),
     typeof(AbpAuthorizationModule),
-    typeof(RegionManagementDomainModule)
+    typeof(SuperAbpRegionManagementDomainModule)
     )]
 public class RegionManagementTestBaseModule : AbpModule
 {

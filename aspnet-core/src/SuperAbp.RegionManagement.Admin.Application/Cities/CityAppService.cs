@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Snow.RegionManagement.Cities;
+using SuperAbp.RegionManagement.Cities;
 
-namespace Snow.RegionManagement.Admin.Cities;
+namespace SuperAbp.RegionManagement.Admin.Cities;
 
 public class CityAppService : RegionManagementAppService, ICityAppService
 {
@@ -14,7 +15,7 @@ public class CityAppService : RegionManagementAppService, ICityAppService
         _cityRepository = cityRepository;
     }
 
-    public async Task<List<CityListDto>> GetChildrenAsync(int provinceId)
+    public async Task<List<CityListDto>> GetChildrenAsync(Guid provinceId)
     {
         var provinceQueryable = await _cityRepository.GetQueryableAsync();
         var provinces = await AsyncExecuter.ToListAsync(provinceQueryable

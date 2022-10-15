@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories;
 
-namespace Snow.RegionManagement.Regions
+namespace SuperAbp.RegionManagement.Regions
 {
     public interface IRegionRepository : IRepository<Region, int>
     {

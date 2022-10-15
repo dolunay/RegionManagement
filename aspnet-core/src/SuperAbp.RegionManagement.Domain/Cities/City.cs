@@ -1,8 +1,8 @@
 ﻿using System;
-using Snow.RegionManagement.Provinces;
+using SuperAbp.RegionManagement.Provinces;
 using Volo.Abp.Domain.Entities;
 
-namespace Snow.RegionManagement.Cities;
+namespace SuperAbp.RegionManagement.Cities;
 
 /// <summary>
 /// 市

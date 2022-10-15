@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Volo.Abp.ObjectExtending;
 
-namespace Snow.RegionManagement.Admin.Regions
+namespace SuperAbp.RegionManagement.Admin.Regions
 {
     public class RegionCreateOrUpdateDtoBase
     {

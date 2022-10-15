@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Snow.RegionManagement.EntityFrameworkCore;
+using SuperAbp.RegionManagement.EntityFrameworkCore;
 using Volo.Abp.Domain.Repositories.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
 
-namespace Snow.RegionManagement.Regions
+namespace SuperAbp.RegionManagement.Regions
 {
     public class EfCoreRegionRepository : EfCoreRepository<IRegionManagementDbContext, Region, int>, IRegionRepository
     {

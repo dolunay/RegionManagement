@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 
-namespace Snow.RegionManagement.Locations;
+namespace SuperAbp.RegionManagement.Locations;
 
 public class LocationAppService:RegionManagementAppService, ILocationAppService
 {

@@ -7,7 +7,7 @@ using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.AspNetCore.Mvc;
 
-namespace Snow.RegionManagement.Regions
+namespace SuperAbp.RegionManagement.Regions
 {
     /// <summary>
     /// 区域管理

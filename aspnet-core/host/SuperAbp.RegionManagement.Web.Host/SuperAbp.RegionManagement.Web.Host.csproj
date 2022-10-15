@@ -36,7 +36,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\SuperAbp.RegionManagement.Web\SuperAbp.RegionManagement.Web.csproj" />
-    <ProjectReference Include="..\..\src\SuperAbp.RegionManagement.HttpApi.Client\SuperAbp.RegionManagement.HttpApi.Client.csproj" />
     <ProjectReference Include="..\..\src\SuperAbp.RegionManagement.HttpApi\SuperAbp.RegionManagement.HttpApi.csproj" />
     <ProjectReference Include="..\SuperAbp.RegionManagement.Host.Shared\SuperAbp.RegionManagement.Host.Shared.csproj" />
   </ItemGroup>

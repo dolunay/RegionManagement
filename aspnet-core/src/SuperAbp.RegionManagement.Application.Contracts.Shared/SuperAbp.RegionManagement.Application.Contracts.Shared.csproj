@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	  <RootNamespace>SuperAbp.RegionManagement</RootNamespace>
+	  <Authors>SuperAbp</Authors>
+	  <Company>SuperAbp</Company>
+	  <Product>SuperAbp.RegionManagement</Product>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <Description>super abp</Description>
+	  <RepositoryUrl>https://github.com/SuperAbp/RegionManagement</RepositoryUrl>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.PermissionManagement.Application.Contracts" Version="6.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\SuperAbp.RegionManagement.Domain.Shared\SuperAbp.RegionManagement.Domain.Shared.csproj" />
+	</ItemGroup>
+</Project>

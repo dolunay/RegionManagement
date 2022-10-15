@@ -1,4 +1,4 @@
-﻿namespace Snow.RegionManagement.Provinces;
+﻿namespace SuperAbp.RegionManagement.Provinces;
 
 public class ProvinceConsts
 {

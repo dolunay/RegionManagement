@@ -1,8 +1,8 @@
-﻿using Snow.RegionManagement.Cities;
-using Snow.RegionManagement.Districts;
-using Snow.RegionManagement.Provinces;
-using Snow.RegionManagement.Streets;
-using Snow.RegionManagement.Villages;
+﻿using SuperAbp.RegionManagement.Cities;
+using SuperAbp.RegionManagement.Districts;
+using SuperAbp.RegionManagement.Provinces;
+using SuperAbp.RegionManagement.Streets;
+using SuperAbp.RegionManagement.Villages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Domain.Repositories;
 
-namespace Snow.RegionManagement.Regions
+namespace SuperAbp.RegionManagement.Regions
 {
     /// <summary>
     /// 区域管理

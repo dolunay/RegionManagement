@@ -1,6 +1,6 @@
 ﻿using Volo.Abp.Application.Dtos;
 
-namespace Snow.RegionManagement.Admin.Cities;
+namespace SuperAbp.RegionManagement.Admin.Cities;
 
 public class CityListDto : EntityDto<int>
 {

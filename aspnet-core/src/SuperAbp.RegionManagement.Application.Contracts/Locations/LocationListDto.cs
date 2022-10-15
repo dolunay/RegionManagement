@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Snow.RegionManagement.Locations;
+namespace SuperAbp.RegionManagement.Locations;
 
 public class LocationListDto
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Volo.Abp.Domain.Entities;
 
-namespace Snow.RegionManagement.Districts;
+namespace SuperAbp.RegionManagement.Districts;
 
 /// <summary>
 /// 区

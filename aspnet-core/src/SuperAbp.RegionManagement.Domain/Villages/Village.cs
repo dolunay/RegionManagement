@@ -1,10 +1,10 @@
 ﻿using System;
-using Snow.RegionManagement.Cities;
-using Snow.RegionManagement.Provinces;
-using Snow.RegionManagement.Streets;
+using SuperAbp.RegionManagement.Cities;
+using SuperAbp.RegionManagement.Provinces;
+using SuperAbp.RegionManagement.Streets;
 using Volo.Abp.Domain.Entities;
 
-namespace Snow.RegionManagement.Villages;
+namespace SuperAbp.RegionManagement.Villages;
 
 /// <summary>
 /// 村庄

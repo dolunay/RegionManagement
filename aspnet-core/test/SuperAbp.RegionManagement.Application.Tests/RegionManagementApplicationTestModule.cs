@@ -3,7 +3,7 @@
 namespace SuperAbp.RegionManagement;
 
 [DependsOn(
-    typeof(RegionManagementApplicationModule),
+    typeof(SuperAbpRegionManagementApplicationModule),
     typeof(RegionManagementDomainTestModule)
     )]
 public class RegionManagementApplicationTestModule : AbpModule

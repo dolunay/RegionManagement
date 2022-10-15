@@ -1,9 +1,9 @@
 ﻿using System;
-using Snow.RegionManagement.EntityFrameworkCore;
+using SuperAbp.RegionManagement.EntityFrameworkCore;
 using Volo.Abp.Domain.Repositories.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
 
-namespace Snow.RegionManagement.Streets;
+namespace SuperAbp.RegionManagement.Streets;
 
 public class EfCoreStreetRepository : EfCoreRepository<IRegionManagementDbContext, Street, Guid>, IStreetRepository
 {

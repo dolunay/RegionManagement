@@ -1,7 +1,7 @@
 ﻿using SuperAbp.RegionManagement.Localization;
 using Volo.Abp.AspNetCore.Mvc;
 
-namespace SuperAbp.RegionManagement;
+namespace SuperAbp.RegionManagement.Admin;
 
 public abstract class RegionManagementController : AbpControllerBase
 {

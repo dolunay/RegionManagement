@@ -1,4 +1,4 @@
-﻿namespace Snow.RegionManagement.Villages;
+﻿namespace SuperAbp.RegionManagement.Villages;
 
 public class VillageConsts
 {

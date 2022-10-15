@@ -6,7 +6,7 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.DependencyInjection;
 
-namespace Snow.RegionManagement.Admin.Regions
+namespace SuperAbp.RegionManagement.Admin.Regions
 {
     /// <summary>
     /// 区域管理

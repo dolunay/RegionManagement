@@ -1,4 +1,4 @@
-﻿namespace Snow.RegionManagement.Admin.Districts;
+﻿namespace SuperAbp.RegionManagement.Admin.Districts;
 
 public class DistrictListDto
 {

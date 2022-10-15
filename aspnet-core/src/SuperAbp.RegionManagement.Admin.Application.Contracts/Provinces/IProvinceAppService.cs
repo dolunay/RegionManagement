@@ -1,6 +1,6 @@
 ﻿using Volo.Abp.Application.Services;
 
-namespace Snow.RegionManagement.Admin.Provinces;
+namespace SuperAbp.RegionManagement.Admin.Provinces;
 
 public interface IProvinceAppService : IApplicationService
 {

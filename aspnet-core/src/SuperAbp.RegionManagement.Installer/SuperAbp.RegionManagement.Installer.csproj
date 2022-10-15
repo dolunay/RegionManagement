@@ -6,6 +6,12 @@
         <TargetFramework>net6.0</TargetFramework>
         <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
         <RootNamespace>SuperAbp.RegionManagement</RootNamespace>
+	    <Authors>SuperAbp</Authors>
+	    <Company>SuperAbp</Company>
+	    <Product>SuperAbp.RegionManagement</Product>
+	    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	    <Description>super abp</Description>
+	    <RepositoryUrl>https://github.com/SuperAbp/RegionManagement</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>

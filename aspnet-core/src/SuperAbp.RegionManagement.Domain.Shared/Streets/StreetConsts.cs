@@ -1,4 +1,4 @@
-﻿namespace Snow.RegionManagement.Streets;
+﻿namespace SuperAbp.RegionManagement.Streets;
 
 public class StreetConsts
 {

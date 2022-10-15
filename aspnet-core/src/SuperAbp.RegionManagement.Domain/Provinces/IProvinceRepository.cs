@@ -1,7 +1,7 @@
 ﻿using System;
 using Volo.Abp.Domain.Repositories;
 
-namespace Snow.RegionManagement.Provinces;
+namespace SuperAbp.RegionManagement.Provinces;
 
 public interface IProvinceRepository : IRepository<Province, Guid>
 {

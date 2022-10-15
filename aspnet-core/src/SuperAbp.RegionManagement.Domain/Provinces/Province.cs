@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Volo.Abp.Domain.Entities;
 
-namespace Snow.RegionManagement.Provinces;
+namespace SuperAbp.RegionManagement.Provinces;
 
 /// <summary>
 /// 省

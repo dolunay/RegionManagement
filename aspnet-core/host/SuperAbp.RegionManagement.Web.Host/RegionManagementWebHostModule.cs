@@ -55,9 +55,8 @@ using Volo.Abp.VirtualFileSystem;
 namespace SuperAbp.RegionManagement;
 
 [DependsOn(
-    typeof(RegionManagementWebModule),
-    typeof(RegionManagementHttpApiClientModule),
-    typeof(RegionManagementHttpApiModule),
+    typeof(SuperAbpRegionManagementWebModule),
+    typeof(SuperAbpRegionManagementHttpApiModule),
     typeof(AbpAspNetCoreAuthenticationOpenIdConnectModule),
     typeof(AbpAspNetCoreMvcClientModule),
     typeof(AbpHttpClientWebModule),
@@ -85,8 +84,8 @@ public class RegionManagementWebHostModule : AbpModule
         {
             options.AddAssemblyResource(
                 typeof(RegionManagementResource),
-                typeof(RegionManagementDomainSharedModule).Assembly,
-                typeof(RegionManagementApplicationContractsModule).Assembly,
+                typeof(SuperAbpRegionManagementDomainSharedModule).Assembly,
+                typeof(SuperAbpRegionManagementApplicationContractsModule).Assembly,
                 typeof(RegionManagementWebHostModule).Assembly
             );
         });
@@ -183,9 +182,9 @@ public class RegionManagementWebHostModule : AbpModule
         {
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.ReplaceEmbeddedByPhysical<RegionManagementDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.RegionManagement.Domain.Shared", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<RegionManagementApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.RegionManagement.Application.Contracts", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<RegionManagementWebModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.RegionManagement.Web", Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<SuperAbpRegionManagementDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.RegionManagement.Domain.Shared", Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<SuperAbpRegionManagementApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.RegionManagement.Application.Contracts", Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<SuperAbpRegionManagementWebModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.RegionManagement.Web", Path.DirectorySeparatorChar)));
             });
         }
     }

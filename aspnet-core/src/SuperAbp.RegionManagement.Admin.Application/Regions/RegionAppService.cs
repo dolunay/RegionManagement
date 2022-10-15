@@ -5,18 +5,18 @@ using System.Linq.Dynamic.Core;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Snow.RegionManagement.Cities;
-using Snow.RegionManagement.Districts;
-using Snow.RegionManagement.Permissions;
-using Snow.RegionManagement.Provinces;
-using Snow.RegionManagement.Regions;
-using Snow.RegionManagement.Streets;
-using Snow.RegionManagement.Villages;
+using SuperAbp.RegionManagement.Cities;
+using SuperAbp.RegionManagement.Districts;
+using SuperAbp.RegionManagement.Permissions;
+using SuperAbp.RegionManagement.Provinces;
+using SuperAbp.RegionManagement.Regions;
+using SuperAbp.RegionManagement.Streets;
+using SuperAbp.RegionManagement.Villages;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Domain.Repositories;
 
-namespace Snow.RegionManagement.Admin.Regions
+namespace SuperAbp.RegionManagement.Admin.Regions
 {
     /// <summary>
     /// 区域管理

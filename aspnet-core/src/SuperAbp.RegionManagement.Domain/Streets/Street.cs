@@ -1,9 +1,9 @@
 ﻿using System;
-using Snow.RegionManagement.Cities;
-using Snow.RegionManagement.Provinces;
+using SuperAbp.RegionManagement.Cities;
+using SuperAbp.RegionManagement.Provinces;
 using Volo.Abp.Domain.Entities;
 
-namespace Snow.RegionManagement.Streets;
+namespace SuperAbp.RegionManagement.Streets;
 
 /// <summary>
 /// 乡镇

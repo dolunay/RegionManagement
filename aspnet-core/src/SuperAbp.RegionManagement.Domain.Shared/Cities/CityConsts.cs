@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Snow.RegionManagement.Cities
+namespace SuperAbp.RegionManagement.Cities
 {
     public class CityConsts
     {

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 
-namespace Snow.RegionManagement.Locations
+namespace SuperAbp.RegionManagement.Locations
 {
     /// <summary>
     /// 经纬度管理

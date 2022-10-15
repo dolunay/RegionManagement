@@ -10,6 +10,6 @@ public abstract class RegionManagementPageModel : AbpPageModel
     protected RegionManagementPageModel()
     {
         LocalizationResourceType = typeof(RegionManagementResource);
-        ObjectMapperContext = typeof(RegionManagementWebModule);
+        ObjectMapperContext = typeof(SuperAbpRegionManagementWebModule);
     }
 }

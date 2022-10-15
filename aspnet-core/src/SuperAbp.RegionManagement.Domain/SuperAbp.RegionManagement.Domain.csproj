@@ -5,6 +5,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>SuperAbp.RegionManagement</RootNamespace>
+	  <Authors>SuperAbp</Authors>
+	  <Company>SuperAbp</Company>
+	  <Product>SuperAbp.RegionManagement</Product>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <Description>super abp</Description>
+	  <RepositoryUrl>https://github.com/SuperAbp/RegionManagement</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

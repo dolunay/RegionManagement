@@ -5,12 +5,18 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>SuperAbp.RegionManagement.Admin</RootNamespace>
+	  <Authors>SuperAbp</Authors>
+	  <Company>SuperAbp</Company>
+	  <Product>SuperAbp.RegionManagement</Product>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <Description>super abp</Description>
+	  <RepositoryUrl>https://github.com/SuperAbp/RegionManagement</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Volo.Abp.AutoMapper" Version="6.0.0" />
     <PackageReference Include="Volo.Abp.Ddd.Application" Version="6.0.0" />
-    <ProjectReference Include="..\SuperAbp.RegionManagement.Application.Contracts\SuperAbp.RegionManagement.Application.Contracts.csproj" />
+    <ProjectReference Include="..\SuperAbp.RegionManagement.Admin.Application.Contracts\SuperAbp.RegionManagement.Admin.Application.Contracts.csproj" />
     <ProjectReference Include="..\SuperAbp.RegionManagement.Domain\SuperAbp.RegionManagement.Domain.csproj" />
   </ItemGroup>
 

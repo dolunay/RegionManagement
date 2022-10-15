@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 
-namespace Snow.RegionManagement.Locations;
+namespace SuperAbp.RegionManagement.Locations;
 
 public interface ILocationAppService:IApplicationService
 {

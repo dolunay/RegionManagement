@@ -1,7 +1,7 @@
 ﻿using System;
 using Volo.Abp.Domain.Repositories;
 
-namespace Snow.RegionManagement.Streets;
+namespace SuperAbp.RegionManagement.Streets;
 
 public interface IStreetRepository : IRepository<Street, Guid>
 {

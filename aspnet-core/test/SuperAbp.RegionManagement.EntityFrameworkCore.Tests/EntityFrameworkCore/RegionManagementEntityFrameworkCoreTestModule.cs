@@ -10,7 +10,7 @@ namespace SuperAbp.RegionManagement.EntityFrameworkCore;
 
 [DependsOn(
     typeof(RegionManagementTestBaseModule),
-    typeof(RegionManagementEntityFrameworkCoreModule),
+    typeof(SuperAbpRegionManagementEntityFrameworkCoreModule),
     typeof(AbpEntityFrameworkCoreSqliteModule)
     )]
 public class RegionManagementEntityFrameworkCoreTestModule : AbpModule

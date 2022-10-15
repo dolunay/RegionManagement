@@ -9,6 +9,12 @@
     <OutputType>Library</OutputType>
     <RootNamespace>SuperAbp.RegionManagement.Web</RootNamespace>
     <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+	  <Authors>SuperAbp</Authors>
+	  <Company>SuperAbp</Company>
+	  <Product>SuperAbp.RegionManagement</Product>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <Description>super abp</Description>
+	  <RepositoryUrl>https://github.com/SuperAbp/RegionManagement</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Snow.RegionManagement.Provinces;
+using SuperAbp.RegionManagement.Provinces;
 
-namespace Snow.RegionManagement.Admin.Provinces;
+namespace SuperAbp.RegionManagement.Admin.Provinces;
 
 public class ProvinceAppService : RegionManagementAppService, IProvinceAppService
 {
