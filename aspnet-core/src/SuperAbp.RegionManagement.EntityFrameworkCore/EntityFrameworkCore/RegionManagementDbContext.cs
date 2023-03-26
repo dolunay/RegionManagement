@@ -3,7 +3,6 @@ using SuperAbp.RegionManagement.Cities;
 using SuperAbp.RegionManagement.Districts;
 using SuperAbp.RegionManagement.Locations;
 using SuperAbp.RegionManagement.Provinces;
-using SuperAbp.RegionManagement.Regions;
 using SuperAbp.RegionManagement.Streets;
 using SuperAbp.RegionManagement.Villages;
 using Volo.Abp.Data;
@@ -14,7 +13,6 @@ namespace SuperAbp.RegionManagement.EntityFrameworkCore;
 [ConnectionStringName(RegionManagementDbProperties.ConnectionStringName)]
 public class RegionManagementDbContext : AbpDbContext<RegionManagementDbContext>, IRegionManagementDbContext
 {
-    public DbSet<Region> Regions { get; set; }
     public DbSet<Province> Provinces { get; set; }
     public DbSet<City> Cities { get; set; }
     public DbSet<District> Districts { get; set; }
@@ -25,7 +23,6 @@ public class RegionManagementDbContext : AbpDbContext<RegionManagementDbContext>
     public RegionManagementDbContext(DbContextOptions<RegionManagementDbContext> options)
         : base(options)
     {
-
     }
 
     protected override void OnModelCreating(ModelBuilder builder)

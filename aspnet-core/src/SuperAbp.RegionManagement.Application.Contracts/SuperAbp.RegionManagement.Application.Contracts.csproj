@@ -3,7 +3,7 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>SuperAbp.RegionManagement</RootNamespace>
 	  <Authors>SuperAbp</Authors>
 	  <Company>SuperAbp</Company>
@@ -20,6 +20,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SuperAbp.RegionManagement.Application.Contracts.Shared\SuperAbp.RegionManagement.Application.Contracts.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Villages\" />
   </ItemGroup>
 
 </Project>

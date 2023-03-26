@@ -1,5 +1,15 @@
-﻿namespace SuperAbp.RegionManagement.Admin.Districts;
+﻿using System;
+using Volo.Abp.Application.Dtos;
 
-public class DistrictListDto
+namespace SuperAbp.RegionManagement.Admin.Districts
 {
+    /// <summary>
+    /// 列表
+    /// </summary>
+    public class DistrictListDto: EntityDto<Guid>
+    {
+        public string Code { get; set; }
+        public string Name { get; set; }
+        public string Alias { get; set; }
+    }
 }

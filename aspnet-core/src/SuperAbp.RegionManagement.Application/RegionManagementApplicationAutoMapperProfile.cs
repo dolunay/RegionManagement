@@ -13,6 +13,12 @@ public class RegionManagementApplicationAutoMapperProfile : Profile
 {
     public RegionManagementApplicationAutoMapperProfile()
     {
+        CreateMap<Province, ProvinceListDto>();
+        CreateMap<City, CityListDto>();
+        CreateMap<District, DistrictListDto>();
+        CreateMap<Street, StreetListDto>();
+        CreateMap<Village, VillageListDto>();
+
         CreateMap<Province, RegionNodeDto>()
             .ForMember(entity => entity.IsLeaf,
                 opt => opt.Ignore())

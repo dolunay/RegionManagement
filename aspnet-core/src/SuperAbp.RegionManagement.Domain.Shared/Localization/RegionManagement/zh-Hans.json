@@ -1,7 +1,15 @@
 {
   "culture": "zh-Hans",
   "texts": {
-    "MyAccount": "我的账户",
-    "SamplePageMessage": "RegionManagement模块的示例页面"
+    "Permission:RegionManagement": "区域管理",
+    "Permission:Region": "区域",
+    "Permission:Province": "省",
+    "Permission:City": "市",
+    "Permission:District": "区",
+    "Permission:Street": "乡镇",
+    "Permission:Village": "村庄",
+    "Permission:Create": "创建",
+    "Permission:Edit": "编辑",
+    "Permission:Delete": "删除"
   }
 }

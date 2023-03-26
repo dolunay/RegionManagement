@@ -9,10 +9,8 @@ using SuperAbp.RegionManagement.Cities;
 using SuperAbp.RegionManagement.Districts;
 using SuperAbp.RegionManagement.Permissions;
 using SuperAbp.RegionManagement.Provinces;
-using SuperAbp.RegionManagement.Regions;
 using SuperAbp.RegionManagement.Streets;
 using SuperAbp.RegionManagement.Villages;
-using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Domain.Repositories;
 

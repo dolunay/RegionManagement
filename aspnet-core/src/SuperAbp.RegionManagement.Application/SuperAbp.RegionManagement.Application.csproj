@@ -21,7 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Provinces\" />
+    <Folder Include="Streets\" />
+    <Folder Include="Villages\" />
   </ItemGroup>
 
 </Project>

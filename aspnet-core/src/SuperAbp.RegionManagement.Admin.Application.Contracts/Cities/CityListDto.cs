@@ -1,18 +1,15 @@
-﻿using Volo.Abp.Application.Dtos;
+﻿using System;
+using Volo.Abp.Application.Dtos;
 
-namespace SuperAbp.RegionManagement.Admin.Cities;
-
-public class CityListDto : EntityDto<int>
+namespace SuperAbp.RegionManagement.Admin.Cities
 {
     /// <summary>
-    /// 名称
+    /// 列表
     /// </summary>
-    public string Name { get; set; }
-
-    /// <summary>
-    /// 简称
-    /// </summary>
-    public string Alias { get; set; }
-
-    public int ProvinceId { get; set; }
+    public class CityListDto: EntityDto<Guid>
+    {
+        public string Code { get; set; }
+        public string Name { get; set; }
+        public string Alias { get; set; }
+    }
 }

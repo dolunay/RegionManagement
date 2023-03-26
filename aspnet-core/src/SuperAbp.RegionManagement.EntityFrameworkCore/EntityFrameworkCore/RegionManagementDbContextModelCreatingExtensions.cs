@@ -1,10 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SuperAbp.RegionManagement.Admin.Regions;
 using SuperAbp.RegionManagement.Cities;
 using SuperAbp.RegionManagement.Districts;
 using SuperAbp.RegionManagement.Locations;
 using SuperAbp.RegionManagement.Provinces;
-using SuperAbp.RegionManagement.Regions;
 using SuperAbp.RegionManagement.Streets;
 using SuperAbp.RegionManagement.Villages;
 using Volo.Abp;
@@ -19,16 +17,6 @@ public static class RegionManagementDbContextModelCreatingExtensions
     {
         Check.NotNull(builder, nameof(builder));
 
-        builder.Entity<Region>(b =>
-        {
-            b.ToTable(RegionManagementDbProperties.DbTablePrefix + "Regions", RegionManagementDbProperties.DbSchema);
-            b.Property(p => p.Id).ValueGeneratedNever();
-            b.Property(p => p.Name).IsRequired().HasMaxLength(RegionConsts.MaxNameLength);
-            b.Property(p => p.Alias).HasMaxLength(RegionConsts.MaxAliasLength);
-            b.Property(p => p.EnglishName).HasMaxLength(RegionConsts.MaxEnglishNameLength);
-            b.Property(p => p.AreaCode).HasMaxLength(RegionConsts.MaxAreaCodeLength);
-            b.Property(p => p.PostCode).HasMaxLength(RegionConsts.MaxPostCodeLength);
-        });
         builder.Entity<Province>(b =>
         {
             b.ToTable(RegionManagementDbProperties.DbTablePrefix + "Provinces", RegionManagementDbProperties.DbSchema);
