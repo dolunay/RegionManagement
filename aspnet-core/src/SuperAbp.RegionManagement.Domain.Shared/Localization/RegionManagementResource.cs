@@ -2,8 +2,7 @@
 
 namespace SuperAbp.RegionManagement.Localization;
 
-[LocalizationResourceName("RegionManagement")]
+[LocalizationResourceName("SuperAbpRegionManagement")]
 public class RegionManagementResource
 {
-
 }

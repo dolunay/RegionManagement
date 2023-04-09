@@ -1,6 +1,17 @@
 {
   "culture": "zh-Hans",
   "texts": {
+    "Placeholder": "请输入{0}",
+    "Name": "名称",
+    "Code": "代码",
+    "Alias": "简称",
+    "NewRegion": "新区域",
+    "NewProvince": "新省",
+    "NewCity": "新市",
+    "NewDistrict": "新区",
+    "NewStreet": "新乡镇",
+    "NewVillage": "新村庄",
+    "Edit": "编辑",
     "Permission:RegionManagement": "区域管理",
     "Permission:Region": "区域",
     "Permission:Province": "省",
