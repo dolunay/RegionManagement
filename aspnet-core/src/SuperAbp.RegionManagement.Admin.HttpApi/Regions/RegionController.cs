@@ -13,6 +13,7 @@ namespace SuperAbp.RegionManagement.Admin.Regions
     [Area(RegionManagementRemoteServiceConsts.ModuleName)]
     [ControllerName("Region")]
     [Route("api/regions")]
+    [Obsolete("该方法已弃用，即将被删除")]
     public class RegionController : RegionManagementController, IRegionAppService
     {
         private readonly IRegionAppService _regionAppService;

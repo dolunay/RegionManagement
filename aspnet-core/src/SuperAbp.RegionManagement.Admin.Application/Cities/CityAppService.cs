@@ -10,6 +10,7 @@ using Volo.Abp.Linq;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Domain.Repositories;
 using SuperAbp.RegionManagement.Permissions;
+using SuperAbp.RegionManagement.Provinces;
 
 namespace SuperAbp.RegionManagement.Admin.Cities
 {
@@ -70,8 +71,8 @@ namespace SuperAbp.RegionManagement.Admin.Cities
         public virtual async Task<GetCityForEditorOutput> GetEditorAsync(Guid id)
         {
             City entity = await _cityRepository.GetAsync(id);
-
-            return ObjectMapper.Map<City, GetCityForEditorOutput>(entity);
+            var dto = ObjectMapper.Map<City, GetCityForEditorOutput>(entity);
+            return dto;
         }
 
         /// <summary>

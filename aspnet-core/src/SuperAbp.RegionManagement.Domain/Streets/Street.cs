@@ -31,7 +31,7 @@ public class Street : Entity<Guid>
     public Guid ProvinceId { get; set; }
 
     /// <summary>
-    /// 市Id
+    /// 市IdB
     /// </summary>
     public Guid CityId { get; set; }
 
