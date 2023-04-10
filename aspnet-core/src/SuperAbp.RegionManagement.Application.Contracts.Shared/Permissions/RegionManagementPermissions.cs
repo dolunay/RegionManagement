@@ -6,15 +6,6 @@ namespace SuperAbp.RegionManagement.Permissions
     {
         public const string GroupName = "SuperAbpRegionManagement";
 
-        public static class Regions
-        {
-            public const string Default = GroupName + ".Region";
-            public const string Management = Default + ".Management";
-            public const string Create = Default + ".Create";
-            public const string Update = Default + ".Update";
-            public const string Delete = Default + ".Delete";
-        }
-
         public static class Provinces
         {
             public const string Default = GroupName + ".Province";

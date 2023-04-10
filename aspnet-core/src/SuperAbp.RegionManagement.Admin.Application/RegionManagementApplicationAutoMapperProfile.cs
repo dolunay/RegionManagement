@@ -4,7 +4,6 @@ using SuperAbp.RegionManagement.Admin.Districts;
 using SuperAbp.RegionManagement.Admin.Cities;
 using SuperAbp.RegionManagement.Admin.Provinces;
 using AutoMapper;
-using SuperAbp.RegionManagement.Admin.Regions;
 using SuperAbp.RegionManagement.Cities;
 using SuperAbp.RegionManagement.Districts;
 using SuperAbp.RegionManagement.Provinces;
@@ -17,32 +16,6 @@ public class RegionManagementApplicationAutoMapperProfile : Profile
 {
     public RegionManagementApplicationAutoMapperProfile()
     {
-        CreateMap<Province, RegionNodeDto>()
-            .ForMember(entity => entity.IsLeaf,
-                opt => opt.Ignore())
-            .ForMember(entity => entity.Children,
-                opt => opt.Ignore());
-        CreateMap<City, RegionNodeDto>()
-            .ForMember(entity => entity.IsLeaf,
-                opt => opt.Ignore())
-            .ForMember(entity => entity.Children,
-                opt => opt.Ignore());
-        CreateMap<District, RegionNodeDto>()
-            .ForMember(entity => entity.IsLeaf,
-                opt => opt.Ignore())
-            .ForMember(entity => entity.Children,
-                opt => opt.Ignore());
-        CreateMap<Street, RegionNodeDto>()
-            .ForMember(entity => entity.IsLeaf,
-                opt => opt.Ignore())
-            .ForMember(entity => entity.Children,
-                opt => opt.Ignore());
-        CreateMap<Village, RegionNodeDto>()
-            .ForMember(entity => entity.IsLeaf,
-                opt => opt.Ignore())
-            .ForMember(entity => entity.Children,
-                opt => opt.Ignore());
-
         #region 省
 
         CreateMap<Province, GetProvinceForEditorOutput>();

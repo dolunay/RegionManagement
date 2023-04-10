@@ -10,12 +10,6 @@ namespace SuperAbp.RegionManagement.Permissions
         {
             var myGroup = context.AddGroup(RegionManagementPermissions.GroupName, L("Permission:RegionManagement"));
 
-            var regions = myGroup.AddPermission(RegionManagementPermissions.Regions.Default, L("Permission:Region"));
-            regions.AddChild(RegionManagementPermissions.Regions.Management, L("Permission:Management"));
-            regions.AddChild(RegionManagementPermissions.Regions.Create, L("Permission:Create"));
-            regions.AddChild(RegionManagementPermissions.Regions.Update, L("Permission:Edit"));
-            regions.AddChild(RegionManagementPermissions.Regions.Delete, L("Permission:Delete"));
-
             var provinces = myGroup.AddPermission(RegionManagementPermissions.Provinces.Default, L("Permission:Province"));
             provinces.AddChild(RegionManagementPermissions.Provinces.Create, L("Permission:Create"));
             provinces.AddChild(RegionManagementPermissions.Provinces.Update, L("Permission:Edit"));
