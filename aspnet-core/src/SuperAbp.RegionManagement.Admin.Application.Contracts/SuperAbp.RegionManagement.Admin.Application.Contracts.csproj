@@ -5,6 +5,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>SuperAbp.RegionManagement.Admin</RootNamespace>
+	  <Authors>SuperAbp</Authors>
+	  <Company>SuperAbp</Company>
 	  <Product>SuperAbp.RegionManagement</Product>
 	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
 	  <PackageProjectUrl>https://superabp.com/</PackageProjectUrl>

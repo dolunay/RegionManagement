@@ -7,7 +7,7 @@
 	  <Company>SuperAbp</Company>
 	  <Product>SuperAbp.RegionManagement</Product>
 	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
-	  <Description>super abp</Description>
+	  <PackageProjectUrl>https://superabp.com/</PackageProjectUrl>
 	  <RepositoryUrl>https://github.com/SuperAbp/RegionManagement</RepositoryUrl>
   </PropertyGroup>
 	<ItemGroup>

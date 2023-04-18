@@ -5,7 +5,9 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <RootNamespace>SuperAbp.RegionManagement</RootNamespace>
-	  <Product>RegionManagement</Product>
+	  <Authors>SuperAbp</Authors>
+	  <Company>SuperAbp</Company>
+	  <Product>SuperAbp.RegionManagement</Product>
 	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
 	  <PackageProjectUrl>https://superabp.com/</PackageProjectUrl>
 	  <RepositoryUrl>https://github.com/SuperAbp/RegionManagement</RepositoryUrl>
