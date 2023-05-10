@@ -13,7 +13,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="7.0.0" />
     <ProjectReference Include="..\..\src\SuperAbp.RegionManagement.EntityFrameworkCore\SuperAbp.RegionManagement.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\SuperAbp.RegionManagement.TestBase\SuperAbp.RegionManagement.TestBase.csproj" />
-    <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="7.1.0" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="7.2.1" />
   </ItemGroup>
 
 </Project>

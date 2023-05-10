@@ -1,0 +1,30 @@
+name: push tag and pack nuget
+
+on:
+  push:
+    tags:
+    - '*'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '7.0.x'
+  
+    - name: Build with dotnet
+      run: dotnet build -c Release
+      working-directory: aspnet-core
+
+    - name: Package with dotnet
+      run: dotnet pack -c Release  --output nupkgs /p:Version=${{ github.ref_name }}           
+      working-directory: aspnet-core
+      
+    - name: Push generated package to Nuget
+      run: |
+          dotnet nuget push "*.nupkg" -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGETKEY }} --skip-duplicate -n 
+      working-directory: aspnet-core/nupkgs
