@@ -6,5 +6,5 @@ public static class RegionManagementDbProperties
 
     public static string DbSchema { get; set; } = null;
 
-    public const string ConnectionStringName = "RegionManagement";
+    public const string ConnectionStringName = "SuperAbpRegionManagement";
 }
