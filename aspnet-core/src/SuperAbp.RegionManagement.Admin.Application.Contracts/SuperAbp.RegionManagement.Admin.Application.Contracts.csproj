@@ -14,8 +14,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="7.2.1" />
-    <PackageReference Include="Volo.Abp.Authorization" Version="7.2.1" />
+    <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="7.3.0" />
+    <PackageReference Include="Volo.Abp.Authorization" Version="7.3.0" />
     <ProjectReference Include="..\SuperAbp.RegionManagement.Application.Contracts.Shared\SuperAbp.RegionManagement.Application.Contracts.Shared.csproj" />
   </ItemGroup>
 
