@@ -1,4 +1,4 @@
-﻿namespace SuperAbp.MenuManagement;
+﻿namespace SuperAbp.RegionManagement;
 
 public class RegionManagementRemoteServiceConsts
 {

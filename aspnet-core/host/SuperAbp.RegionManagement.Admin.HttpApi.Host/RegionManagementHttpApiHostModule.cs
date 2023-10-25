@@ -38,9 +38,9 @@ using Volo.Abp.VirtualFileSystem;
 namespace SuperAbp.RegionManagement;
 
 [DependsOn(
-    typeof(SuperAbpRegionManagementApplicationModule),
+    typeof(SuperAbpRegionManagementAdminApplicationModule),
     typeof(SuperAbpRegionManagementEntityFrameworkCoreModule),
-    typeof(SuperAbpRegionManagementHttpApiModule),
+    typeof(SuperAbpRegionManagementAdminHttpApiModule),
     typeof(AbpAspNetCoreMvcUiMultiTenancyModule),
     typeof(AbpAutofacModule),
     typeof(AbpCachingStackExchangeRedisModule),
@@ -54,7 +54,6 @@ namespace SuperAbp.RegionManagement;
     )]
 public class RegionManagementHttpApiHostModule : AbpModule
 {
-
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         var hostingEnvironment = context.Services.GetHostingEnvironment();
@@ -76,8 +75,8 @@ public class RegionManagementHttpApiHostModule : AbpModule
             {
                 options.FileSets.ReplaceEmbeddedByPhysical<SuperAbpRegionManagementDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.RegionManagement.Domain.Shared", Path.DirectorySeparatorChar)));
                 options.FileSets.ReplaceEmbeddedByPhysical<SuperAbpRegionManagementDomainModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.RegionManagement.Domain", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<SuperAbpRegionManagementApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.RegionManagement.Application.Contracts", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<SuperAbpRegionManagementApplicationModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.RegionManagement.Application", Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<SuperAbpRegionManagementAdminApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.RegionManagement.Application.Contracts", Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<SuperAbpRegionManagementAdminApplicationModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.RegionManagement.Application", Path.DirectorySeparatorChar)));
             });
         }
 
@@ -89,7 +88,7 @@ public class RegionManagementHttpApiHostModule : AbpModule
             },
             options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo {Title = "RegionManagement API", Version = "v1"});
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "RegionManagement API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
                 options.CustomSchemaIds(type => type.FullName);
             });

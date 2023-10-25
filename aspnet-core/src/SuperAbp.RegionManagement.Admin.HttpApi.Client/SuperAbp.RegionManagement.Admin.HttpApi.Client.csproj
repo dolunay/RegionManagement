@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>netstandard2.0</TargetFramework>
+	  <RootNamespace>SuperAbp.RegionManagement.Admin</RootNamespace>
+	  <Authors>SuperAbp</Authors>
+	  <Company>SuperAbp</Company>
+	  <Product>SuperAbp.RegionManagement</Product>
+	  <PackageProjectUrl>https://superabp.com/</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/SuperAbp/RegionManagement</RepositoryUrl>
+  </PropertyGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Http.Client" Version="7.4.0" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <ProjectReference Include="..\SuperAbp.RegionManagement.Admin.Application.Contracts\SuperAbp.RegionManagement.Admin.Application.Contracts.csproj" />
+	</ItemGroup>
+</Project>
