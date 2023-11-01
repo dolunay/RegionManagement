@@ -15,11 +15,11 @@ namespace SuperAbp.RegionManagement.Admin.Districts;
 [Route("api/admin/region/districts")]
 public class DistrictAdminController : RegionManagementAdminController, IDistrictAdminAppService
 {
-    private readonly IDistrictAdminAppService _districtAppService;
+    protected IDistrictAdminAppService DistrictAppService { get; }
 
     public DistrictAdminController(IDistrictAdminAppService districtAppService)
     {
-        _districtAppService = districtAppService;
+        DistrictAppService = districtAppService;
     }
 
     /// <summary>
@@ -28,9 +28,9 @@ public class DistrictAdminController : RegionManagementAdminController, IDistric
     /// <param name="cityId">市Id</param>
     /// <returns></returns>
     [HttpGet("{cityId}/children")]
-    public async Task<ListResultDto<DistrictListDto>> GetChildrenAsync(Guid cityId)
+    public virtual async Task<ListResultDto<DistrictListDto>> GetChildrenAsync(Guid cityId)
     {
-        return await _districtAppService.GetChildrenAsync(cityId);
+        return await DistrictAppService.GetChildrenAsync(cityId);
     }
 
     /// <summary>
@@ -39,9 +39,9 @@ public class DistrictAdminController : RegionManagementAdminController, IDistric
     /// <param name="input">查询条件</param>
     /// <returns>结果</returns>
     [HttpGet]
-    public async Task<PagedResultDto<DistrictListDto>> GetListAsync(GetDistrictsInput input)
+    public virtual async Task<PagedResultDto<DistrictListDto>> GetListAsync(GetDistrictsInput input)
     {
-        return await _districtAppService.GetListAsync(input);
+        return await DistrictAppService.GetListAsync(input);
     }
 
     /// <summary>
@@ -50,9 +50,9 @@ public class DistrictAdminController : RegionManagementAdminController, IDistric
     /// <param name="id">主键</param>
     /// <returns></returns>
     [HttpGet("{id}")]
-    public async Task<GetDistrictForEditorOutput> GetEditorAsync(Guid id)
+    public virtual async Task<GetDistrictForEditorOutput> GetEditorAsync(Guid id)
     {
-        return await _districtAppService.GetEditorAsync(id);
+        return await DistrictAppService.GetEditorAsync(id);
     }
 
     /// <summary>
@@ -61,9 +61,9 @@ public class DistrictAdminController : RegionManagementAdminController, IDistric
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpPost]
-    public async Task<DistrictListDto> CreateAsync(DistrictCreateDto input)
+    public virtual async Task<DistrictListDto> CreateAsync(DistrictCreateDto input)
     {
-        return await _districtAppService.CreateAsync(input);
+        return await DistrictAppService.CreateAsync(input);
     }
 
     /// <summary>
@@ -73,9 +73,9 @@ public class DistrictAdminController : RegionManagementAdminController, IDistric
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpPut("{id}")]
-    public async Task<DistrictListDto> UpdateAsync(Guid id, DistrictUpdateDto input)
+    public virtual async Task<DistrictListDto> UpdateAsync(Guid id, DistrictUpdateDto input)
     {
-        return await _districtAppService.UpdateAsync(id, input);
+        return await DistrictAppService.UpdateAsync(id, input);
     }
 
     /// <summary>
@@ -84,8 +84,8 @@ public class DistrictAdminController : RegionManagementAdminController, IDistric
     /// <param name="id">主键</param>
     /// <returns></returns>
     [HttpDelete("{id}")]
-    public async Task DeleteAsync(Guid id)
+    public virtual async Task DeleteAsync(Guid id)
     {
-        await _districtAppService.DeleteAsync(id);
+        await DistrictAppService.DeleteAsync(id);
     }
 }

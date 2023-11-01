@@ -15,10 +15,10 @@ public class EfCoreDistrictRepository : EfCoreRepository<IRegionManagementDbCont
     {
     }
 
-    public async Task<IEnumerable<District>> GetListByCityIdAsync(Guid cityId)
+    public virtual async Task<IEnumerable<District>> GetListByCityIdAsync(Guid cityId)
     {
         return await (await GetQueryableAsync())
-            .Where(d=>d.CityId == cityId)
+            .Where(d => d.CityId == cityId)
             .ToListAsync();
     }
 }

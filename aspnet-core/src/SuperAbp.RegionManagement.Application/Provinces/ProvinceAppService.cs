@@ -9,16 +9,16 @@ namespace SuperAbp.RegionManagement.Provinces
 {
     public class ProvinceAppService : RegionManagementAppService, IProvinceAppService
     {
-        private readonly IProvinceRepository _provinceRepository;
+        protected IProvinceRepository ProvinceRepository { get; }
 
         public ProvinceAppService(IProvinceRepository provinceRepository)
         {
-            _provinceRepository = provinceRepository;
+            ProvinceRepository = provinceRepository;
         }
 
-        public async Task<ListResultDto<ProvinceListDto>> GetListAsync()
+        public virtual async Task<ListResultDto<ProvinceListDto>> GetListAsync()
         {
-            var provinces = await _provinceRepository.GetListAsync();
+            var provinces = await ProvinceRepository.GetListAsync();
             return new ListResultDto<ProvinceListDto>(ObjectMapper.Map<List<Province>, List<ProvinceListDto>>(provinces));
         }
     }

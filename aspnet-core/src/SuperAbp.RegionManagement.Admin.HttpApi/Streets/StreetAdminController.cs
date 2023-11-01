@@ -15,11 +15,11 @@ namespace SuperAbp.RegionManagement.Admin.Streets;
 [Route("api/admin/region/streets")]
 public class StreetAdminController : RegionManagementAdminController, IStreetAdminAppService
 {
-    private readonly IStreetAdminAppService _streetAppService;
+    protected IStreetAdminAppService StreetAppService { get; }
 
     public StreetAdminController(IStreetAdminAppService streetAppService)
     {
-        _streetAppService = streetAppService;
+        StreetAppService = streetAppService;
     }
 
     /// <summary>
@@ -28,9 +28,9 @@ public class StreetAdminController : RegionManagementAdminController, IStreetAdm
     /// <param name="districtId">区Id</param>
     /// <returns></returns>
     [HttpGet("{districtId}/children")]
-    public async Task<ListResultDto<StreetListDto>> GetChildrenAsync(Guid districtId)
+    public virtual async Task<ListResultDto<StreetListDto>> GetChildrenAsync(Guid districtId)
     {
-        return await _streetAppService.GetChildrenAsync(districtId);
+        return await StreetAppService.GetChildrenAsync(districtId);
     }
 
     /// <summary>
@@ -39,9 +39,9 @@ public class StreetAdminController : RegionManagementAdminController, IStreetAdm
     /// <param name="input">查询条件</param>
     /// <returns>结果</returns>
     [HttpGet]
-    public async Task<PagedResultDto<StreetListDto>> GetListAsync(GetStreetsInput input)
+    public virtual async Task<PagedResultDto<StreetListDto>> GetListAsync(GetStreetsInput input)
     {
-        return await _streetAppService.GetListAsync(input);
+        return await StreetAppService.GetListAsync(input);
     }
 
     /// <summary>
@@ -50,9 +50,9 @@ public class StreetAdminController : RegionManagementAdminController, IStreetAdm
     /// <param name="id">主键</param>
     /// <returns></returns>
     [HttpGet("{id}")]
-    public async Task<GetStreetForEditorOutput> GetEditorAsync(Guid id)
+    public virtual async Task<GetStreetForEditorOutput> GetEditorAsync(Guid id)
     {
-        return await _streetAppService.GetEditorAsync(id);
+        return await StreetAppService.GetEditorAsync(id);
     }
 
     /// <summary>
@@ -61,9 +61,9 @@ public class StreetAdminController : RegionManagementAdminController, IStreetAdm
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpPost]
-    public async Task<StreetListDto> CreateAsync(StreetCreateDto input)
+    public virtual async Task<StreetListDto> CreateAsync(StreetCreateDto input)
     {
-        return await _streetAppService.CreateAsync(input);
+        return await StreetAppService.CreateAsync(input);
     }
 
     /// <summary>
@@ -73,9 +73,9 @@ public class StreetAdminController : RegionManagementAdminController, IStreetAdm
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpPut("{id}")]
-    public async Task<StreetListDto> UpdateAsync(Guid id, StreetUpdateDto input)
+    public virtual async Task<StreetListDto> UpdateAsync(Guid id, StreetUpdateDto input)
     {
-        return await _streetAppService.UpdateAsync(id, input);
+        return await StreetAppService.UpdateAsync(id, input);
     }
 
     /// <summary>
@@ -84,8 +84,8 @@ public class StreetAdminController : RegionManagementAdminController, IStreetAdm
     /// <param name="id">主键</param>
     /// <returns></returns>
     [HttpDelete("{id}")]
-    public async Task DeleteAsync(Guid id)
+    public virtual async Task DeleteAsync(Guid id)
     {
-        await _streetAppService.DeleteAsync(id);
+        await StreetAppService.DeleteAsync(id);
     }
 }

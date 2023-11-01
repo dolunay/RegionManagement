@@ -15,7 +15,7 @@ public class EfCoreStreetRepository : EfCoreRepository<IRegionManagementDbContex
     {
     }
 
-    public async Task<IEnumerable<Street>> GetListByDistrictIdAsync(Guid districtId)
+    public virtual async Task<IEnumerable<Street>> GetListByDistrictIdAsync(Guid districtId)
     {
         return await (await GetQueryableAsync())
             .Where(s => s.DistrictId == districtId)

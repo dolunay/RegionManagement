@@ -15,9 +15,9 @@ public class EfCoreCityRepository : EfCoreRepository<IRegionManagementDbContext,
     {
     }
 
-    public async Task<IEnumerable<City>> GetListByProvinceIdAsync(Guid provinceId)
+    public virtual async Task<IEnumerable<City>> GetListByProvinceIdAsync(Guid provinceId)
     {
-       return await (await GetQueryableAsync()).Where(c => c.ProvinceId == provinceId)
-            .ToListAsync();
+        return await (await GetQueryableAsync()).Where(c => c.ProvinceId == provinceId)
+             .ToListAsync();
     }
 }

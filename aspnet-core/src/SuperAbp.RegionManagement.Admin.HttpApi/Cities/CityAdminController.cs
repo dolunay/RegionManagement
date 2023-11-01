@@ -18,11 +18,11 @@ namespace SuperAbp.RegionManagement.Admin.Cities;
 [Route("api/admin/region/cities")]
 public class CityAdminController : RegionManagementAdminController, ICityAdminAppService
 {
-    private readonly ICityAdminAppService _cityAppService;
+    protected ICityAdminAppService CityAppService { get; }
 
     public CityAdminController(ICityAdminAppService cityAppService)
     {
-        _cityAppService = cityAppService;
+        CityAppService = cityAppService;
     }
 
     /// <summary>
@@ -31,9 +31,9 @@ public class CityAdminController : RegionManagementAdminController, ICityAdminAp
     /// <param name="provinceId">省Id</param>
     /// <returns></returns>
     [HttpGet("{provinceId}/children")]
-    public async Task<ListResultDto<CityListDto>> GetChildrenAsync(Guid provinceId)
+    public virtual async Task<ListResultDto<CityListDto>> GetChildrenAsync(Guid provinceId)
     {
-        return await _cityAppService.GetChildrenAsync(provinceId);
+        return await CityAppService.GetChildrenAsync(provinceId);
     }
 
     /// <summary>
@@ -42,9 +42,9 @@ public class CityAdminController : RegionManagementAdminController, ICityAdminAp
     /// <param name="input">查询条件</param>
     /// <returns>结果</returns>
     [HttpGet]
-    public async Task<PagedResultDto<CityListDto>> GetListAsync(GetCitiesInput input)
+    public virtual async Task<PagedResultDto<CityListDto>> GetListAsync(GetCitiesInput input)
     {
-        return await _cityAppService.GetListAsync(input);
+        return await CityAppService.GetListAsync(input);
     }
 
     /// <summary>
@@ -53,9 +53,9 @@ public class CityAdminController : RegionManagementAdminController, ICityAdminAp
     /// <param name="id">主键</param>
     /// <returns></returns>
     [HttpGet("{id}")]
-    public async Task<GetCityForEditorOutput> GetEditorAsync(Guid id)
+    public virtual async Task<GetCityForEditorOutput> GetEditorAsync(Guid id)
     {
-        return await _cityAppService.GetEditorAsync(id);
+        return await CityAppService.GetEditorAsync(id);
     }
 
     /// <summary>
@@ -64,9 +64,9 @@ public class CityAdminController : RegionManagementAdminController, ICityAdminAp
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpPost]
-    public async Task<CityListDto> CreateAsync(CityCreateDto input)
+    public virtual async Task<CityListDto> CreateAsync(CityCreateDto input)
     {
-        return await _cityAppService.CreateAsync(input);
+        return await CityAppService.CreateAsync(input);
     }
 
     /// <summary>
@@ -76,9 +76,9 @@ public class CityAdminController : RegionManagementAdminController, ICityAdminAp
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpPut("{id}")]
-    public async Task<CityListDto> UpdateAsync(Guid id, CityUpdateDto input)
+    public virtual async Task<CityListDto> UpdateAsync(Guid id, CityUpdateDto input)
     {
-        return await _cityAppService.UpdateAsync(id, input);
+        return await CityAppService.UpdateAsync(id, input);
     }
 
     /// <summary>
@@ -87,8 +87,8 @@ public class CityAdminController : RegionManagementAdminController, ICityAdminAp
     /// <param name="id">主键</param>
     /// <returns></returns>
     [HttpDelete("{id}")]
-    public async Task DeleteAsync(Guid id)
+    public virtual async Task DeleteAsync(Guid id)
     {
-        await _cityAppService.DeleteAsync(id);
+        await CityAppService.DeleteAsync(id);
     }
 }

@@ -14,11 +14,11 @@ namespace SuperAbp.RegionManagement.Districts;
 [Route("api/region/districts")]
 public class DistrictController : RegionManagementController, IDistrictAppService
 {
-    private readonly IDistrictAppService _districtAppService;
+    protected IDistrictAppService DistrictAppService { get; }
 
     public DistrictController(IDistrictAppService districtAppService)
     {
-        _districtAppService = districtAppService;
+        DistrictAppService = districtAppService;
     }
 
     /// <summary>
@@ -27,8 +27,8 @@ public class DistrictController : RegionManagementController, IDistrictAppServic
     /// <param name="cityId">城市Id</param>
     /// <returns></returns>
     [HttpGet("{cityId}")]
-    public async Task<ListResultDto<DistrictListDto>> GetListAsync(Guid cityId)
+    public virtual async Task<ListResultDto<DistrictListDto>> GetListAsync(Guid cityId)
     {
-        return await _districtAppService.GetListAsync(cityId);
+        return await DistrictAppService.GetListAsync(cityId);
     }
 }

@@ -8,16 +8,16 @@ namespace SuperAbp.RegionManagement.Districts;
 
 public class DistrictAppService : RegionManagementAppService, IDistrictAppService
 {
-    private readonly IDistrictRepository _districtRepository;
+    protected IDistrictRepository DistrictRepository { get; }
 
     public DistrictAppService(IDistrictRepository areaRepository)
     {
-        _districtRepository = areaRepository;
+        DistrictRepository = areaRepository;
     }
 
-    public async Task<ListResultDto<DistrictListDto>> GetListAsync(Guid cityId)
+    public virtual async Task<ListResultDto<DistrictListDto>> GetListAsync(Guid cityId)
     {
-        var districts = await _districtRepository.GetListByCityIdAsync(cityId);
+        var districts = await DistrictRepository.GetListByCityIdAsync(cityId);
         return new ListResultDto<DistrictListDto>(ObjectMapper.Map<List<District>, List<DistrictListDto>>(districts.ToList()));
     }
 }

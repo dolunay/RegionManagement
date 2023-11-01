@@ -15,11 +15,11 @@ namespace SuperAbp.RegionManagement.Admin.Villages;
 [Route("api/admin/region/villages")]
 public class VillageAdminController : RegionManagementAdminController, IVillageAdminAppService
 {
-    private readonly IVillageAdminAppService _villageAppService;
+    protected IVillageAdminAppService VillageAppService { get; }
 
     public VillageAdminController(IVillageAdminAppService villageAppService)
     {
-        _villageAppService = villageAppService;
+        VillageAppService = villageAppService;
     }
 
     /// <summary>
@@ -28,9 +28,9 @@ public class VillageAdminController : RegionManagementAdminController, IVillageA
     /// <param name="streetId">乡镇Id</param>
     /// <returns></returns>
     [HttpGet("{streetId}/children")]
-    public async Task<ListResultDto<VillageListDto>> GetChildrenAsync(Guid streetId)
+    public virtual async Task<ListResultDto<VillageListDto>> GetChildrenAsync(Guid streetId)
     {
-        return await _villageAppService.GetChildrenAsync(streetId);
+        return await VillageAppService.GetChildrenAsync(streetId);
     }
 
     /// <summary>
@@ -39,9 +39,9 @@ public class VillageAdminController : RegionManagementAdminController, IVillageA
     /// <param name="input">查询条件</param>
     /// <returns>结果</returns>
     [HttpGet]
-    public async Task<PagedResultDto<VillageListDto>> GetListAsync(GetVillagesInput input)
+    public virtual async Task<PagedResultDto<VillageListDto>> GetListAsync(GetVillagesInput input)
     {
-        return await _villageAppService.GetListAsync(input);
+        return await VillageAppService.GetListAsync(input);
     }
 
     /// <summary>
@@ -50,9 +50,9 @@ public class VillageAdminController : RegionManagementAdminController, IVillageA
     /// <param name="id">主键</param>
     /// <returns></returns>
     [HttpGet("{id}")]
-    public async Task<GetVillageForEditorOutput> GetEditorAsync(Guid id)
+    public virtual async Task<GetVillageForEditorOutput> GetEditorAsync(Guid id)
     {
-        return await _villageAppService.GetEditorAsync(id);
+        return await VillageAppService.GetEditorAsync(id);
     }
 
     /// <summary>
@@ -61,9 +61,9 @@ public class VillageAdminController : RegionManagementAdminController, IVillageA
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpPost]
-    public async Task<VillageListDto> CreateAsync(VillageCreateDto input)
+    public virtual async Task<VillageListDto> CreateAsync(VillageCreateDto input)
     {
-        return await _villageAppService.CreateAsync(input);
+        return await VillageAppService.CreateAsync(input);
     }
 
     /// <summary>
@@ -73,9 +73,9 @@ public class VillageAdminController : RegionManagementAdminController, IVillageA
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpPut("{id}")]
-    public async Task<VillageListDto> UpdateAsync(Guid id, VillageUpdateDto input)
+    public virtual async Task<VillageListDto> UpdateAsync(Guid id, VillageUpdateDto input)
     {
-        return await _villageAppService.UpdateAsync(id, input);
+        return await VillageAppService.UpdateAsync(id, input);
     }
 
     /// <summary>
@@ -84,8 +84,8 @@ public class VillageAdminController : RegionManagementAdminController, IVillageA
     /// <param name="id">主键</param>
     /// <returns></returns>
     [HttpDelete("{id}")]
-    public async Task DeleteAsync(Guid id)
+    public virtual async Task DeleteAsync(Guid id)
     {
-        await _villageAppService.DeleteAsync(id);
+        await VillageAppService.DeleteAsync(id);
     }
 }

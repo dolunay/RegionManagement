@@ -9,16 +9,16 @@ namespace SuperAbp.RegionManagement.Villages;
 
 public class VillageAppService : RegionManagementAppService, IVillageAppService
 {
-    private readonly IVillageRepository _villageRepository;
+    protected IVillageRepository VillageRepository { get; }
 
     public VillageAppService(IVillageRepository villageRepository)
     {
-        _villageRepository = villageRepository;
+        VillageRepository = villageRepository;
     }
 
-    public async Task<ListResultDto<VillageListDto>> GetListAsync(Guid streetId)
+    public virtual async Task<ListResultDto<VillageListDto>> GetListAsync(Guid streetId)
     {
-        var provinces = await _villageRepository.GetListByStreetIdAsync(streetId);
+        var provinces = await VillageRepository.GetListByStreetIdAsync(streetId);
         return new ListResultDto<VillageListDto>(ObjectMapper.Map<List<Village>, List<VillageListDto>>(provinces.ToList()));
     }
 }

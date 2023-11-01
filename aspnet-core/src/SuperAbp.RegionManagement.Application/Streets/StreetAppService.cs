@@ -9,16 +9,16 @@ namespace SuperAbp.RegionManagement.Streets;
 
 public class StreetAppService : RegionManagementAppService, IStreetAppService
 {
-    private readonly IStreetRepository _streetRepository;
+    protected IStreetRepository StreetRepository { get; }
 
     public StreetAppService(IStreetRepository streetRepository)
     {
-        _streetRepository = streetRepository;
+        StreetRepository = streetRepository;
     }
 
-    public async Task<ListResultDto<StreetListDto>> GetListAsync(Guid districtId)
+    public virtual async Task<ListResultDto<StreetListDto>> GetListAsync(Guid districtId)
     {
-        var streets = await _streetRepository.GetListByDistrictIdAsync(districtId);
+        var streets = await StreetRepository.GetListByDistrictIdAsync(districtId);
         return new ListResultDto<StreetListDto>(ObjectMapper.Map<List<Street>, List<StreetListDto>>(streets.ToList()));
     }
 }

@@ -13,40 +13,28 @@ using SuperAbp.RegionManagement.Villages;
 
 namespace SuperAbp.RegionManagement.Admin.Villages
 {
-    /// <summary>
-    /// 乡管理
-    /// </summary>
     [Authorize(RegionManagementPermissions.Villages.Default)]
     public class VillageAdminAppService : RegionManagementAdminAppService, IVillageAdminAppService
     {
-        private readonly IVillageRepository _villageRepository;
+        protected IVillageRepository VillageRepository { get; }
 
-        /// <summary>
-        /// .ctor
-        /// </summary>
-        /// <param name="villageRepository"></param>
         public VillageAdminAppService(
             IVillageRepository villageRepository)
         {
-            _villageRepository = villageRepository;
+            VillageRepository = villageRepository;
         }
 
         public virtual async Task<ListResultDto<VillageListDto>> GetChildrenAsync(Guid streetId)
         {
-            var provinces = await _villageRepository.GetListByStreetIdAsync(streetId);
+            var provinces = await VillageRepository.GetListByStreetIdAsync(streetId);
             return new ListResultDto<VillageListDto>(ObjectMapper.Map<List<Village>, List<VillageListDto>>(provinces.ToList()));
         }
 
-        /// <summary>
-        /// 列表
-        /// </summary>
-        /// <param name="input">查询条件</param>
-        /// <returns>结果</returns>
         public virtual async Task<PagedResultDto<VillageListDto>> GetListAsync(GetVillagesInput input)
         {
             await NormalizeMaxResultCountAsync(input);
 
-            var queryable = await _villageRepository.GetQueryableAsync();
+            var queryable = await VillageRepository.GetQueryableAsync();
 
             queryable = queryable
                 .Where(v => v.StreetId == input.StreetId);
@@ -62,55 +50,34 @@ namespace SuperAbp.RegionManagement.Admin.Villages
             return new PagedResultDto<VillageListDto>(totalCount, dtos);
         }
 
-        /// <summary>
-        /// 获取修改
-        /// </summary>
-        /// <param name="id">主键</param>
-        /// <returns></returns>
         public virtual async Task<GetVillageForEditorOutput> GetEditorAsync(Guid id)
         {
-            Village entity = await _villageRepository.GetAsync(id);
+            Village entity = await VillageRepository.GetAsync(id);
 
             return ObjectMapper.Map<Village, GetVillageForEditorOutput>(entity);
         }
 
-        /// <summary>
-        /// 创建
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
         [Authorize(RegionManagementPermissions.Villages.Create)]
         public virtual async Task<VillageListDto> CreateAsync(VillageCreateDto input)
         {
             var entity = ObjectMapper.Map<VillageCreateDto, Village>(input);
-            entity = await _villageRepository.InsertAsync(entity, true);
+            entity = await VillageRepository.InsertAsync(entity, true);
             return ObjectMapper.Map<Village, VillageListDto>(entity);
         }
 
-        /// <summary>
-        /// 编辑
-        /// </summary>
-        /// <param name="id">主键</param>
-        /// <param name="input"></param>
-        /// <returns></returns>
         [Authorize(RegionManagementPermissions.Villages.Update)]
         public virtual async Task<VillageListDto> UpdateAsync(Guid id, VillageUpdateDto input)
         {
-            Village entity = await _villageRepository.GetAsync(id);
+            Village entity = await VillageRepository.GetAsync(id);
             entity = ObjectMapper.Map(input, entity);
-            entity = await _villageRepository.UpdateAsync(entity);
+            entity = await VillageRepository.UpdateAsync(entity);
             return ObjectMapper.Map<Village, VillageListDto>(entity);
         }
 
-        /// <summary>
-        /// 删除
-        /// </summary>
-        /// <param name="id">主键</param>
-        /// <returns></returns>
         [Authorize(RegionManagementPermissions.Villages.Delete)]
         public virtual async Task DeleteAsync(Guid id)
         {
-            await _villageRepository.DeleteAsync(s => s.Id == id);
+            await VillageRepository.DeleteAsync(s => s.Id == id);
         }
 
         /// <summary>

@@ -15,7 +15,7 @@ public class EfCoreProvinceRepository : EfCoreRepository<IRegionManagementDbCont
     {
     }
 
-    public async Task<Province> FindByNameAsync(string name, bool includeDetails = true,
+    public virtual async Task<Province> FindByNameAsync(string name, bool includeDetails = true,
         CancellationToken cancellationToken = default)
     {
         return await FindAsync(p => p.Name == name || p.Alias == name, includeDetails, cancellationToken);

@@ -16,11 +16,11 @@ namespace SuperAbp.RegionManagement.Villages;
 [Route("api/region/villages")]
 public class VillageController : RegionManagementController, IVillageAppService
 {
-    private readonly IVillageAppService _villageAppService;
+    protected IVillageAppService VillageAppService { get; }
 
     public VillageController(IVillageAppService villageAppService)
     {
-        _villageAppService = villageAppService;
+        VillageAppService = villageAppService;
     }
 
     /// <summary>
@@ -29,8 +29,8 @@ public class VillageController : RegionManagementController, IVillageAppService
     /// <param name="streetId">乡镇Id</param>
     /// <returns></returns>
     [HttpGet("{streetId}")]
-    public async Task<ListResultDto<VillageListDto>> GetListAsync(Guid streetId)
+    public virtual async Task<ListResultDto<VillageListDto>> GetListAsync(Guid streetId)
     {
-        return await _villageAppService.GetListAsync(streetId);
+        return await VillageAppService.GetListAsync(streetId);
     }
 }

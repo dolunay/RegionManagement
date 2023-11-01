@@ -14,40 +14,28 @@ using SuperAbp.RegionManagement.Provinces;
 
 namespace SuperAbp.RegionManagement.Admin.Cities
 {
-    /// <summary>
-    /// 市管理
-    /// </summary>
     [Authorize(RegionManagementPermissions.Cities.Default)]
     public class CityAdminAppService : RegionManagementAdminAppService, ICityAdminAppService
     {
-        private readonly ICityRepository _cityRepository;
+        protected ICityRepository CityRepository { get; }
 
-        /// <summary>
-        /// .ctor
-        /// </summary>
-        /// <param name="cityRepository"></param>
         public CityAdminAppService(
             ICityRepository cityRepository)
         {
-            _cityRepository = cityRepository;
+            CityRepository = cityRepository;
         }
 
         public virtual async Task<ListResultDto<CityListDto>> GetChildrenAsync(Guid provinceId)
         {
-            var provinces = await _cityRepository.GetListByProvinceIdAsync(provinceId);
+            var provinces = await CityRepository.GetListByProvinceIdAsync(provinceId);
             return new ListResultDto<CityListDto>(ObjectMapper.Map<List<City>, List<CityListDto>>(provinces.ToList()));
         }
 
-        /// <summary>
-        /// 列表
-        /// </summary>
-        /// <param name="input">查询条件</param>
-        /// <returns>结果</returns>
         public virtual async Task<PagedResultDto<CityListDto>> GetListAsync(GetCitiesInput input)
         {
             await NormalizeMaxResultCountAsync(input);
 
-            var queryable = await _cityRepository.GetQueryableAsync();
+            var queryable = await CityRepository.GetQueryableAsync();
 
             queryable = queryable
                 .Where(c => c.ProvinceId == input.ProvinceId);
@@ -63,55 +51,34 @@ namespace SuperAbp.RegionManagement.Admin.Cities
             return new PagedResultDto<CityListDto>(totalCount, dtos);
         }
 
-        /// <summary>
-        /// 获取修改
-        /// </summary>
-        /// <param name="id">主键</param>
-        /// <returns></returns>
         public virtual async Task<GetCityForEditorOutput> GetEditorAsync(Guid id)
         {
-            City entity = await _cityRepository.GetAsync(id);
+            City entity = await CityRepository.GetAsync(id);
             var dto = ObjectMapper.Map<City, GetCityForEditorOutput>(entity);
             return dto;
         }
 
-        /// <summary>
-        /// 创建
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
         [Authorize(RegionManagementPermissions.Cities.Create)]
         public virtual async Task<CityListDto> CreateAsync(CityCreateDto input)
         {
             var entity = ObjectMapper.Map<CityCreateDto, City>(input);
-            entity = await _cityRepository.InsertAsync(entity, true);
+            entity = await CityRepository.InsertAsync(entity, true);
             return ObjectMapper.Map<City, CityListDto>(entity);
         }
 
-        /// <summary>
-        /// 编辑
-        /// </summary>
-        /// <param name="id">主键</param>
-        /// <param name="input"></param>
-        /// <returns></returns>
         [Authorize(RegionManagementPermissions.Cities.Update)]
         public virtual async Task<CityListDto> UpdateAsync(Guid id, CityUpdateDto input)
         {
-            City entity = await _cityRepository.GetAsync(id);
+            City entity = await CityRepository.GetAsync(id);
             entity = ObjectMapper.Map(input, entity);
-            entity = await _cityRepository.UpdateAsync(entity);
+            entity = await CityRepository.UpdateAsync(entity);
             return ObjectMapper.Map<City, CityListDto>(entity);
         }
 
-        /// <summary>
-        /// 删除
-        /// </summary>
-        /// <param name="id">主键</param>
-        /// <returns></returns>
         [Authorize(RegionManagementPermissions.Cities.Delete)]
         public virtual async Task DeleteAsync(Guid id)
         {
-            await _cityRepository.DeleteAsync(s => s.Id == id);
+            await CityRepository.DeleteAsync(s => s.Id == id);
         }
 
         /// <summary>
@@ -119,7 +86,7 @@ namespace SuperAbp.RegionManagement.Admin.Cities
         /// </summary>
         /// <param name="input">参数</param>
         /// <returns></returns>
-        private async Task NormalizeMaxResultCountAsync(PagedAndSortedResultRequestDto input)
+        protected virtual async Task NormalizeMaxResultCountAsync(PagedAndSortedResultRequestDto input)
         {
             var maxPageSize = (await SettingProvider.GetOrNullAsync(CitySettings.MaxPageSize))?.To<int>();
             if (maxPageSize.HasValue && input.MaxResultCount > maxPageSize.Value)

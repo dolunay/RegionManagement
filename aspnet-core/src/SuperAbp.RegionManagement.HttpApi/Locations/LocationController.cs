@@ -15,23 +15,23 @@ namespace SuperAbp.RegionManagement.Locations
     [Route("api/region/location")]
     public class LocationController : ILocationAppService
     {
-        private readonly ILocationAppService _locationAppService;
+        protected ILocationAppService LocationAppService { get; }
 
         public LocationController(ILocationAppService locationAppService)
         {
-            _locationAppService = locationAppService;
+            LocationAppService = locationAppService;
         }
 
         [HttpGet("{regionId}")]
         public virtual async Task<LocationListDto> GetAsync(Guid regionId)
         {
-            return await _locationAppService.GetAsync(regionId);
+            return await LocationAppService.GetAsync(regionId);
         }
 
         [HttpGet]
         public virtual async Task<ListResultDto<LocationListDto>> GetListAsync(Guid[] regionIds)
         {
-            return await _locationAppService.GetListAsync(regionIds);
+            return await LocationAppService.GetListAsync(regionIds);
         }
     }
 }

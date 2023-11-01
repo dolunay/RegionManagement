@@ -18,11 +18,11 @@ namespace SuperAbp.RegionManagement.Admin.Provinces;
 [Route("api/admin/region/provinces")]
 public class ProvinceAdminController : RegionManagementAdminController, IProvinceAdminAppService
 {
-    private readonly IProvinceAdminAppService _provinceAppService;
+    protected IProvinceAdminAppService ProvinceAppService { get; }
 
     public ProvinceAdminController(IProvinceAdminAppService provinceAppService)
     {
-        _provinceAppService = provinceAppService;
+        ProvinceAppService = provinceAppService;
     }
 
     /// <summary>
@@ -30,9 +30,9 @@ public class ProvinceAdminController : RegionManagementAdminController, IProvinc
     /// </summary>
     /// <returns></returns>
     [HttpGet("all")]
-    public async Task<ListResultDto<ProvinceListDto>> GetAllListAsync()
+    public virtual async Task<ListResultDto<ProvinceListDto>> GetAllListAsync()
     {
-        return await _provinceAppService.GetAllListAsync();
+        return await ProvinceAppService.GetAllListAsync();
     }
 
     /// <summary>
@@ -41,9 +41,9 @@ public class ProvinceAdminController : RegionManagementAdminController, IProvinc
     /// <param name="input">查询条件</param>
     /// <returns>结果</returns>
     [HttpGet]
-    public async Task<PagedResultDto<ProvinceListDto>> GetListAsync(GetProvincesInput input)
+    public virtual async Task<PagedResultDto<ProvinceListDto>> GetListAsync(GetProvincesInput input)
     {
-        return await _provinceAppService.GetListAsync(input);
+        return await ProvinceAppService.GetListAsync(input);
     }
 
     /// <summary>
@@ -52,9 +52,9 @@ public class ProvinceAdminController : RegionManagementAdminController, IProvinc
     /// <param name="id">主键</param>
     /// <returns></returns>
     [HttpGet("{id}")]
-    public async Task<GetProvinceForEditorOutput> GetEditorAsync(Guid id)
+    public virtual async Task<GetProvinceForEditorOutput> GetEditorAsync(Guid id)
     {
-        return await _provinceAppService.GetEditorAsync(id);
+        return await ProvinceAppService.GetEditorAsync(id);
     }
 
     /// <summary>
@@ -63,9 +63,9 @@ public class ProvinceAdminController : RegionManagementAdminController, IProvinc
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpPost]
-    public async Task<ProvinceListDto> CreateAsync(ProvinceCreateDto input)
+    public virtual async Task<ProvinceListDto> CreateAsync(ProvinceCreateDto input)
     {
-        return await _provinceAppService.CreateAsync(input);
+        return await ProvinceAppService.CreateAsync(input);
     }
 
     /// <summary>
@@ -75,9 +75,9 @@ public class ProvinceAdminController : RegionManagementAdminController, IProvinc
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpPut("{id}")]
-    public async Task<ProvinceListDto> UpdateAsync(Guid id, ProvinceUpdateDto input)
+    public virtual async Task<ProvinceListDto> UpdateAsync(Guid id, ProvinceUpdateDto input)
     {
-        return await _provinceAppService.UpdateAsync(id, input);
+        return await ProvinceAppService.UpdateAsync(id, input);
     }
 
     /// <summary>
@@ -86,8 +86,8 @@ public class ProvinceAdminController : RegionManagementAdminController, IProvinc
     /// <param name="id">主键</param>
     /// <returns></returns>
     [HttpDelete("{id}")]
-    public async Task DeleteAsync(Guid id)
+    public virtual async Task DeleteAsync(Guid id)
     {
-        await _provinceAppService.DeleteAsync(id);
+        await ProvinceAppService.DeleteAsync(id);
     }
 }

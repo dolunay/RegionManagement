@@ -14,11 +14,11 @@ namespace SuperAbp.RegionManagement.Cities;
 [Route("api/region/cities")]
 public class CityController : RegionManagementController, ICityAppService
 {
-    private readonly ICityAppService _cityAppService;
+    protected ICityAppService CityAppService { get; }
 
     public CityController(ICityAppService cityAppService)
     {
-        _cityAppService = cityAppService;
+        CityAppService = cityAppService;
     }
 
     /// <summary>
@@ -27,8 +27,8 @@ public class CityController : RegionManagementController, ICityAppService
     /// <param name="provinceId">省份Id</param>
     /// <returns></returns>
     [HttpGet("{provinceId}")]
-    public async Task<ListResultDto<CityListDto>> GetListAsync(Guid provinceId)
+    public virtual async Task<ListResultDto<CityListDto>> GetListAsync(Guid provinceId)
     {
-        return await _cityAppService.GetListAsync(provinceId);
+        return await CityAppService.GetListAsync(provinceId);
     }
 }

@@ -13,11 +13,11 @@ namespace SuperAbp.RegionManagement.Provinces;
 [Route("api/region/provinces")]
 public class ProvinceController : RegionManagementController, IProvinceAppService
 {
-    private readonly IProvinceAppService _provinceAppService;
+    protected IProvinceAppService ProvinceAppService { get; }
 
     public ProvinceController(IProvinceAppService provinceAppService)
     {
-        _provinceAppService = provinceAppService;
+        ProvinceAppService = provinceAppService;
     }
 
     /// <summary>
@@ -25,8 +25,8 @@ public class ProvinceController : RegionManagementController, IProvinceAppServic
     /// </summary>
     /// <returns></returns>
     [HttpGet]
-    public async Task<ListResultDto<ProvinceListDto>> GetListAsync()
+    public virtual async Task<ListResultDto<ProvinceListDto>> GetListAsync()
     {
-        return await _provinceAppService.GetListAsync();
+        return await ProvinceAppService.GetListAsync();
     }
 }

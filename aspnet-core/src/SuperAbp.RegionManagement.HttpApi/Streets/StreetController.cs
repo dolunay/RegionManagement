@@ -15,11 +15,11 @@ namespace SuperAbp.RegionManagement.Streets;
 [Route("api/region/streets")]
 public class StreetController : RegionManagementController, IStreetAppService
 {
-    private readonly IStreetAppService _streetAppService;
+    protected IStreetAppService StreetAppService { get; }
 
     public StreetController(IStreetAppService streetAppService)
     {
-        _streetAppService = streetAppService;
+        StreetAppService = streetAppService;
     }
 
     /// <summary>
@@ -28,8 +28,8 @@ public class StreetController : RegionManagementController, IStreetAppService
     /// <param name="districtId">区域Id</param>
     /// <returns></returns>
     [HttpGet("{districtId}")]
-    public async Task<ListResultDto<StreetListDto>> GetListAsync(Guid districtId)
+    public virtual async Task<ListResultDto<StreetListDto>> GetListAsync(Guid districtId)
     {
-        return await _streetAppService.GetListAsync(districtId);
+        return await StreetAppService.GetListAsync(districtId);
     }
 }
