@@ -3,7 +3,7 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>SuperAbp.RegionManagement</RootNamespace>
 	  <Authors>SuperAbp</Authors>
 	  <Company>SuperAbp</Company>
@@ -13,8 +13,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.AutoMapper" Version="7.4.0" />
-    <PackageReference Include="Volo.Abp.Ddd.Application" Version="7.4.0" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="8.0.0" />
+    <PackageReference Include="Volo.Abp.Ddd.Application" Version="8.0.0" />
     <ProjectReference Include="..\SuperAbp.RegionManagement.Application.Contracts\SuperAbp.RegionManagement.Application.Contracts.csproj" />
     <ProjectReference Include="..\SuperAbp.RegionManagement.Domain\SuperAbp.RegionManagement.Domain.csproj" />
   </ItemGroup>
@@ -22,6 +22,14 @@
   <ItemGroup>
     <Folder Include="Streets\" />
     <Folder Include="Villages\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="ConfigureAwait.Fody" Version="3.3.2" />
+    <PackageReference Update="Fody" Version="6.8.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

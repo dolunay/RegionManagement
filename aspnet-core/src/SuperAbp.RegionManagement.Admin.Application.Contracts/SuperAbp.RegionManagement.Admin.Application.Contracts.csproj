@@ -14,9 +14,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="7.4.0" />
-    <PackageReference Include="Volo.Abp.Authorization" Version="7.4.0" />
+    <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="8.0.0" />
+    <PackageReference Include="Volo.Abp.Authorization" Version="8.0.0" />
     <ProjectReference Include="..\SuperAbp.RegionManagement.Application.Contracts.Shared\SuperAbp.RegionManagement.Application.Contracts.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="ConfigureAwait.Fody" Version="3.3.2" />
+    <PackageReference Update="Fody" Version="6.8.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>

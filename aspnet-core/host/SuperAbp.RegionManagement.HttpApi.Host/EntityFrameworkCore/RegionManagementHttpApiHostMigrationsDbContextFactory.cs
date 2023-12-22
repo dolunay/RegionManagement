@@ -12,7 +12,7 @@ public class RegionManagementHttpApiHostMigrationsDbContextFactory : IDesignTime
         var configuration = BuildConfiguration();
 
         var builder = new DbContextOptionsBuilder<RegionManagementHttpApiHostMigrationsDbContext>()
-            .UseSqlServer(configuration.GetConnectionString("RegionManagement"));
+            .UseSqlServer(configuration.GetConnectionString("SuperAbpRegionManagement"));
 
         return new RegionManagementHttpApiHostMigrationsDbContext(builder.Options);
     }

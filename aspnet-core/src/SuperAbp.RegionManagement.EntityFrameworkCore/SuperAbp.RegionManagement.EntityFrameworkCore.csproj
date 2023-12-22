@@ -3,7 +3,7 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>SuperAbp.RegionManagement</RootNamespace>
 	  <Authors>SuperAbp</Authors>
 	  <Company>SuperAbp</Company>
@@ -14,8 +14,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="7.4.0" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="8.0.0" />
     <ProjectReference Include="..\SuperAbp.RegionManagement.Domain\SuperAbp.RegionManagement.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="ConfigureAwait.Fody" Version="3.3.2" />
+    <PackageReference Update="Fody" Version="6.8.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
