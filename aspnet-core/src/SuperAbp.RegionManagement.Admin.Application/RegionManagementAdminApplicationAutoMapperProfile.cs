@@ -20,13 +20,6 @@ public class RegionManagementAdminApplicationAutoMapperProfile : Profile
 
         CreateMap<Province, GetProvinceForEditorOutput>();
         CreateMap<Province, ProvinceListDto>();
-        CreateMap<Province, ProvinceDetailDto>();
-        CreateMap<ProvinceCreateDto, Province>()
-            .ForMember(entity => entity.Id,
-                opt => opt.Ignore());
-        CreateMap<ProvinceUpdateDto, Province>()
-            .ForMember(entity => entity.Id,
-                opt => opt.Ignore());
 
         #endregion 省
 
@@ -34,13 +27,6 @@ public class RegionManagementAdminApplicationAutoMapperProfile : Profile
 
         CreateMap<City, GetCityForEditorOutput>();
         CreateMap<City, CityListDto>();
-        CreateMap<City, CityDetailDto>();
-        CreateMap<CityCreateDto, City>()
-            .ForMember(entity => entity.Id,
-                opt => opt.Ignore());
-        CreateMap<CityUpdateDto, City>()
-            .ForMember(entity => entity.Id,
-                opt => opt.Ignore());
 
         #endregion 市
 
@@ -48,13 +34,6 @@ public class RegionManagementAdminApplicationAutoMapperProfile : Profile
 
         CreateMap<District, GetDistrictForEditorOutput>();
         CreateMap<District, DistrictListDto>();
-        CreateMap<District, DistrictDetailDto>();
-        CreateMap<DistrictCreateDto, District>()
-            .ForMember(entity => entity.Id,
-                opt => opt.Ignore());
-        CreateMap<DistrictUpdateDto, District>()
-            .ForMember(entity => entity.Id,
-                opt => opt.Ignore());
 
         #endregion 地区
 
@@ -62,13 +41,6 @@ public class RegionManagementAdminApplicationAutoMapperProfile : Profile
 
         CreateMap<Street, GetStreetForEditorOutput>();
         CreateMap<Street, StreetListDto>();
-        CreateMap<Street, StreetDetailDto>();
-        CreateMap<StreetCreateDto, Street>()
-            .ForMember(entity => entity.Id,
-                opt => opt.Ignore());
-        CreateMap<StreetUpdateDto, Street>()
-            .ForMember(entity => entity.Id,
-                opt => opt.Ignore());
 
         #endregion 镇
 
@@ -76,13 +48,6 @@ public class RegionManagementAdminApplicationAutoMapperProfile : Profile
 
         CreateMap<Village, GetVillageForEditorOutput>();
         CreateMap<Village, VillageListDto>();
-        CreateMap<Village, VillageDetailDto>();
-        CreateMap<VillageCreateDto, Village>()
-            .ForMember(entity => entity.Id,
-                opt => opt.Ignore());
-        CreateMap<VillageUpdateDto, Village>()
-            .ForMember(entity => entity.Id,
-                opt => opt.Ignore());
 
         #endregion 乡
     }

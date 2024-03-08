@@ -18,11 +18,13 @@ namespace SuperAbp.RegionManagement.Admin.Cities
     public class CityAdminAppService : RegionManagementAdminAppService, ICityAdminAppService
     {
         protected ICityRepository CityRepository { get; }
+        protected CityManager CityManager { get; }
 
         public CityAdminAppService(
-            ICityRepository cityRepository)
+            ICityRepository cityRepository, CityManager cityManager)
         {
             CityRepository = cityRepository;
+            CityManager = cityManager;
         }
 
         public virtual async Task<ListResultDto<CityListDto>> GetChildrenAsync(Guid provinceId)
@@ -61,18 +63,26 @@ namespace SuperAbp.RegionManagement.Admin.Cities
         [Authorize(RegionManagementPermissions.Cities.Create)]
         public virtual async Task<CityListDto> CreateAsync(CityCreateDto input)
         {
-            var entity = ObjectMapper.Map<CityCreateDto, City>(input);
-            entity = await CityRepository.InsertAsync(entity, true);
-            return ObjectMapper.Map<City, CityListDto>(entity);
+            var city = await CityManager.CreateAsync(input.ProvinceId, input.Name, input.Code);
+            city.Alias = input.Alias;
+            city = await CityRepository.InsertAsync(city);
+            return ObjectMapper.Map<City, CityListDto>(city);
         }
 
         [Authorize(RegionManagementPermissions.Cities.Update)]
         public virtual async Task<CityListDto> UpdateAsync(Guid id, CityUpdateDto input)
         {
-            City entity = await CityRepository.GetAsync(id);
-            entity = ObjectMapper.Map(input, entity);
-            entity = await CityRepository.UpdateAsync(entity);
-            return ObjectMapper.Map<City, CityListDto>(entity);
+            City city = await CityRepository.GetAsync(id);
+            await CityManager.SetNameAsync(city, input.Name);
+            await CityManager.SetCodeAsync(city, input.Code);
+            if (input.ProvinceId.HasValue)
+            {
+                await CityManager.SetProvinceAsync(city, input.ProvinceId.Value);
+            }
+            city.Alias = input.Alias;
+
+            city = await CityRepository.UpdateAsync(city);
+            return ObjectMapper.Map<City, CityListDto>(city);
         }
 
         [Authorize(RegionManagementPermissions.Cities.Delete)]

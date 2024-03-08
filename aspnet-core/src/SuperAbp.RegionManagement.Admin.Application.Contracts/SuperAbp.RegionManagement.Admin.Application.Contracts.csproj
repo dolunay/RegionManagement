@@ -5,6 +5,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>SuperAbp.RegionManagement.Admin</RootNamespace>
+	  <Nullable>enable</Nullable>
 	  <Authors>SuperAbp</Authors>
 	  <Company>SuperAbp</Company>
 	  <Product>SuperAbp.RegionManagement</Product>
@@ -16,6 +17,7 @@
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="8.0.0" />
     <PackageReference Include="Volo.Abp.Authorization" Version="8.0.0" />
+    <PackageReference Include="Volo.Abp.FluentValidation" Version="8.0.0" />
     <ProjectReference Include="..\SuperAbp.RegionManagement.Application.Contracts.Shared\SuperAbp.RegionManagement.Application.Contracts.Shared.csproj" />
   </ItemGroup>
 

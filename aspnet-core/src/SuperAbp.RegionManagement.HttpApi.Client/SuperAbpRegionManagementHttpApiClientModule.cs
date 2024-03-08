@@ -3,7 +3,7 @@ using Volo.Abp.Http.Client;
 using Volo.Abp.Modularity;
 using Volo.Abp.VirtualFileSystem;
 
-namespace SuperAbp.RegionManagement.Admin
+namespace SuperAbp.RegionManagement
 {
     [DependsOn(
         typeof(SuperAbpRegionManagementApplicationContractsModule),

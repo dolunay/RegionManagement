@@ -33,6 +33,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\SuperAbp.RegionManagement.Admin.Application\SuperAbp.RegionManagement.Admin.Application.csproj" />
+    <ProjectReference Include="..\..\src\SuperAbp.RegionManagement.Admin.HttpApi\SuperAbp.RegionManagement.Admin.HttpApi.csproj" />
     <ProjectReference Include="..\..\src\SuperAbp.RegionManagement.HttpApi\SuperAbp.RegionManagement.HttpApi.csproj" />
     <ProjectReference Include="..\..\src\SuperAbp.RegionManagement.Application\SuperAbp.RegionManagement.Application.csproj" />
     <ProjectReference Include="..\..\src\SuperAbp.RegionManagement.EntityFrameworkCore\SuperAbp.RegionManagement.EntityFrameworkCore.csproj" />

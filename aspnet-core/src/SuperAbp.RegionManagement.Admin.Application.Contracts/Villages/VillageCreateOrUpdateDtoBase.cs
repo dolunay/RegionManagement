@@ -1,13 +1,12 @@
-﻿namespace SuperAbp.RegionManagement.Admin.Villages
+﻿using System;
+
+namespace SuperAbp.RegionManagement.Admin.Villages
 {
     public class VillageCreateOrUpdateDtoBase
     {
-        public string Code { get; set; }
-        public string Name { get; set; }
-        public string Alias { get; set; }
-        public System.Guid ProvinceId { get; set; }
-        public System.Guid CityId { get; set; }
-        public System.Guid DistrictId { get; set; }
-        public System.Guid StreetId { get; set; }
+        public string Code { get; set; } = default!;
+        public string Name { get; set; } = default!;
+        public string? Alias { get; set; }
+        public Guid StreetId { get; set; }
     }
 }

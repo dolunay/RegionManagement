@@ -12,11 +12,11 @@ namespace SuperAbp.RegionManagement.Provinces
         /// <summary>
         /// 编码
         /// </summary>
-        public string Code { get; set; }
+        public string Code { get; set; } = default!;
 
         /// <summary>
         /// 名称
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; set; } = default!;
     }
 }

@@ -1,9 +1,10 @@
-﻿namespace SuperAbp.RegionManagement;
+﻿using Volo.Abp.Modularity;
 
-/* Inherit from this class for your domain layer tests.
- * See SampleManager_Tests for example.
- */
-public abstract class RegionManagementDomainTestBase : RegionManagementTestBase<RegionManagementDomainTestModule>
+namespace SuperAbp.RegionManagement;
+
+/* Inherit from this class for your domain layer tests. */
+public abstract class RegionManagementDomainTestBase<TStartupModule> : RegionManagementTestBase<TStartupModule>
+    where TStartupModule : IAbpModule
 {
 
 }

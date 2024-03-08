@@ -5,6 +5,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>SuperAbp.RegionManagement.Admin</RootNamespace>
+	  <Nullable>enable</Nullable>
 	  <Authors>SuperAbp</Authors>
 	  <Company>SuperAbp</Company>
 	  <Product>SuperAbp.RegionManagement</Product>

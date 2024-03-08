@@ -8,7 +8,8 @@ using Volo.Abp.Testing;
 
 namespace SuperAbp.RegionManagement;
 
-/* All test classes are derived from this class, directly or indirectly. */
+/* All test classes are derived from this class, directly or indirectly.
+ */
 public abstract class RegionManagementTestBase<TStartupModule> : AbpIntegratedTest<TStartupModule>
     where TStartupModule : IAbpModule
 {

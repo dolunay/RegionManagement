@@ -23,6 +23,7 @@ public static class RegionManagementDbContextModelCreatingExtensions
             b.Property(p => p.Code).IsRequired().HasMaxLength(ProvinceConsts.MaxCodeLength);
             b.Property(p => p.Name).IsRequired().HasMaxLength(ProvinceConsts.MaxNameLength);
             b.Property(p => p.Alias).HasMaxLength(ProvinceConsts.MaxAliasLength);
+            b.Property(p => p.Abbreviation).HasMaxLength(ProvinceConsts.MaxAbbreviationLength);
             b.ConfigureByConvention();
         });
 

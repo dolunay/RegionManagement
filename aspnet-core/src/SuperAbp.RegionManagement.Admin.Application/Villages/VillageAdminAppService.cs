@@ -17,11 +17,13 @@ namespace SuperAbp.RegionManagement.Admin.Villages
     public class VillageAdminAppService : RegionManagementAdminAppService, IVillageAdminAppService
     {
         protected IVillageRepository VillageRepository { get; }
+        protected VillageManager VillageManager { get; }
 
         public VillageAdminAppService(
-            IVillageRepository villageRepository)
+            IVillageRepository villageRepository, VillageManager villageManager)
         {
             VillageRepository = villageRepository;
+            VillageManager = villageManager;
         }
 
         public virtual async Task<ListResultDto<VillageListDto>> GetChildrenAsync(Guid streetId)
@@ -60,18 +62,22 @@ namespace SuperAbp.RegionManagement.Admin.Villages
         [Authorize(RegionManagementPermissions.Villages.Create)]
         public virtual async Task<VillageListDto> CreateAsync(VillageCreateDto input)
         {
-            var entity = ObjectMapper.Map<VillageCreateDto, Village>(input);
-            entity = await VillageRepository.InsertAsync(entity, true);
-            return ObjectMapper.Map<Village, VillageListDto>(entity);
+            var village = await VillageManager.CreateAsync(input.StreetId, input.Name, input.Code);
+            village.Alias = input.Alias;
+            village = await VillageRepository.InsertAsync(village);
+            return ObjectMapper.Map<Village, VillageListDto>(village);
         }
 
         [Authorize(RegionManagementPermissions.Villages.Update)]
         public virtual async Task<VillageListDto> UpdateAsync(Guid id, VillageUpdateDto input)
         {
-            Village entity = await VillageRepository.GetAsync(id);
-            entity = ObjectMapper.Map(input, entity);
-            entity = await VillageRepository.UpdateAsync(entity);
-            return ObjectMapper.Map<Village, VillageListDto>(entity);
+            Village village = await VillageRepository.GetAsync(id);
+            await VillageManager.SetStreetAsync(village, input.StreetId);
+            await VillageManager.SetNameAsync(village, input.Name);
+            await VillageManager.SetCodeAsync(village, input.Code);
+            village.Alias = input.Alias;
+            village = await VillageRepository.UpdateAsync(village);
+            return ObjectMapper.Map<Village, VillageListDto>(village);
         }
 
         [Authorize(RegionManagementPermissions.Villages.Delete)]

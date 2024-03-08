@@ -17,11 +17,13 @@ namespace SuperAbp.RegionManagement.Admin.Provinces
     public class ProvinceAdminAppService : RegionManagementAdminAppService, IProvinceAdminAppService
     {
         protected IProvinceRepository ProvinceRepository { get; }
+        protected ProvinceManager ProvinceManager { get; }
 
         public ProvinceAdminAppService(
-            IProvinceRepository provinceRepository)
+            IProvinceRepository provinceRepository, ProvinceManager provinceManager)
         {
             ProvinceRepository = provinceRepository;
+            ProvinceManager = provinceManager;
         }
 
         public virtual async Task<ListResultDto<ProvinceListDto>> GetAllListAsync()
@@ -58,18 +60,23 @@ namespace SuperAbp.RegionManagement.Admin.Provinces
         [Authorize(RegionManagementPermissions.Provinces.Create)]
         public virtual async Task<ProvinceListDto> CreateAsync(ProvinceCreateDto input)
         {
-            var entity = ObjectMapper.Map<ProvinceCreateDto, Province>(input);
-            entity = await ProvinceRepository.InsertAsync(entity, true);
-            return ObjectMapper.Map<Province, ProvinceListDto>(entity);
+            var province = await ProvinceManager.CreateAsync(input.Name, input.Code);
+            province.Alias = input.Alias;
+            province.Abbreviation = input.Abbreviation;
+            province = await ProvinceRepository.InsertAsync(province);
+            return ObjectMapper.Map<Province, ProvinceListDto>(province);
         }
 
         [Authorize(RegionManagementPermissions.Provinces.Update)]
         public virtual async Task<ProvinceListDto> UpdateAsync(Guid id, ProvinceUpdateDto input)
         {
-            Province entity = await ProvinceRepository.GetAsync(id);
-            entity = ObjectMapper.Map(input, entity);
-            entity = await ProvinceRepository.UpdateAsync(entity);
-            return ObjectMapper.Map<Province, ProvinceListDto>(entity);
+            Province province = await ProvinceRepository.GetAsync(id);
+            await ProvinceManager.SetNameAsync(province, input.Name);
+            await ProvinceManager.SetCodeAsync(province, input.Code);
+            province.Alias = input.Alias;
+
+            province = await ProvinceRepository.UpdateAsync(province);
+            return ObjectMapper.Map<Province, ProvinceListDto>(province);
         }
 
         [Authorize(RegionManagementPermissions.Provinces.Delete)]

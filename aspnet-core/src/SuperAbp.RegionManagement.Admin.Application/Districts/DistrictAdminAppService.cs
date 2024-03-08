@@ -19,11 +19,13 @@ namespace SuperAbp.RegionManagement.Admin.Districts
     public class DistrictAdminAppService : RegionManagementAdminAppService, IDistrictAdminAppService
     {
         protected IDistrictRepository DistrictRepository { get; }
+        protected DistrictManager DistrictManager { get; }
 
         public DistrictAdminAppService(
-            IDistrictRepository districtRepository)
+            IDistrictRepository districtRepository, DistrictManager districtManager)
         {
             DistrictRepository = districtRepository;
+            DistrictManager = districtManager;
         }
 
         public virtual async Task<ListResultDto<DistrictListDto>> GetChildrenAsync(Guid cityId)
@@ -62,18 +64,23 @@ namespace SuperAbp.RegionManagement.Admin.Districts
         [Authorize(RegionManagementPermissions.Districts.Create)]
         public virtual async Task<DistrictListDto> CreateAsync(DistrictCreateDto input)
         {
-            var entity = ObjectMapper.Map<DistrictCreateDto, District>(input);
-            entity = await DistrictRepository.InsertAsync(entity, true);
-            return ObjectMapper.Map<District, DistrictListDto>(entity);
+            var district = await DistrictManager.CreateAsync(input.CityId, input.Name, input.Code);
+            district.Alias = input.Alias;
+            district = await DistrictRepository.InsertAsync(district);
+            return ObjectMapper.Map<District, DistrictListDto>(district);
         }
 
         [Authorize(RegionManagementPermissions.Districts.Update)]
         public virtual async Task<DistrictListDto> UpdateAsync(Guid id, DistrictUpdateDto input)
         {
-            District entity = await DistrictRepository.GetAsync(id);
-            entity = ObjectMapper.Map(input, entity);
-            entity = await DistrictRepository.UpdateAsync(entity);
-            return ObjectMapper.Map<District, DistrictListDto>(entity);
+            District district = await DistrictRepository.GetAsync(id);
+            await DistrictManager.SetCityAsync(district, input.CityId);
+            await DistrictManager.SetNameAsync(district, input.Name);
+            await DistrictManager.SetCodeAsync(district, input.Code);
+            district.Alias = input.Alias;
+
+            district = await DistrictRepository.UpdateAsync(district);
+            return ObjectMapper.Map<District, DistrictListDto>(district);
         }
 
         [Authorize(RegionManagementPermissions.Districts.Delete)]

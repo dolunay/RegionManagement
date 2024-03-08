@@ -1,4 +1,6 @@
-﻿namespace SuperAbp.RegionManagement.Admin.Districts
+﻿using System;
+
+namespace SuperAbp.RegionManagement.Admin.Districts
 {
     /// <summary>
     /// 更新

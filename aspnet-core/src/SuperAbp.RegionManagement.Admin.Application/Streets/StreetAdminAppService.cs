@@ -17,11 +17,13 @@ namespace SuperAbp.RegionManagement.Admin.Streets
     public class StreetAdminAppService : RegionManagementAdminAppService, IStreetAdminAppService
     {
         protected IStreetRepository StreetRepository { get; }
+        protected StreetManager StreetManager { get; }
 
         public StreetAdminAppService(
-            IStreetRepository streetRepository)
+            IStreetRepository streetRepository, StreetManager streetManager)
         {
             StreetRepository = streetRepository;
+            StreetManager = streetManager;
         }
 
         public virtual async Task<ListResultDto<StreetListDto>> GetChildrenAsync(Guid districtId)
@@ -60,18 +62,23 @@ namespace SuperAbp.RegionManagement.Admin.Streets
         [Authorize(RegionManagementPermissions.Streets.Create)]
         public virtual async Task<StreetListDto> CreateAsync(StreetCreateDto input)
         {
-            var entity = ObjectMapper.Map<StreetCreateDto, Street>(input);
-            entity = await StreetRepository.InsertAsync(entity, true);
-            return ObjectMapper.Map<Street, StreetListDto>(entity);
+            var street = await StreetManager.CreateAsync(input.DistrictId, input.Name, input.Code);
+            street.Alias = input.Alias;
+            street = await StreetRepository.InsertAsync(street);
+            return ObjectMapper.Map<Street, StreetListDto>(street);
         }
 
         [Authorize(RegionManagementPermissions.Streets.Update)]
         public virtual async Task<StreetListDto> UpdateAsync(Guid id, StreetUpdateDto input)
         {
-            Street entity = await StreetRepository.GetAsync(id);
-            entity = ObjectMapper.Map(input, entity);
-            entity = await StreetRepository.UpdateAsync(entity);
-            return ObjectMapper.Map<Street, StreetListDto>(entity);
+            Street street = await StreetRepository.GetAsync(id);
+            await StreetManager.SetNameAsync(street, input.Name);
+            await StreetManager.SetCodeAsync(street, input.Code);
+            await StreetManager.SetDistrictAsync(street, input.DistrictId);
+            street.Alias = input.Alias;
+
+            street = await StreetRepository.UpdateAsync(street);
+            return ObjectMapper.Map<Street, StreetListDto>(street);
         }
 
         [Authorize(RegionManagementPermissions.Streets.Delete)]

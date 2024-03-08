@@ -11,38 +11,52 @@ namespace SuperAbp.RegionManagement.Villages;
 /// </summary>
 public class Village : Entity<Guid>
 {
+    protected Village()
+    {
+    }
+
+    public Village(Guid id, Guid provinceId, Guid cityId, Guid districtId, Guid streetId, string name, string code) : base(id)
+    {
+        ProvinceId = provinceId;
+        CityId = cityId;
+        DistrictId = districtId;
+        StreetId = streetId;
+        Name = name;
+        Code = code;
+    }
+
     /// <summary>
     /// 编码
     /// </summary>
-    public string Code { get; set; }
+    public string Code { get; internal set; } = default!;
 
     /// <summary>
     /// 名称
     /// </summary>
-    public string Name { get; set; }
+    public string Name { get; internal set; } = default!;
 
     /// <summary>
     /// 简称
     /// </summary>
-    public string Alias { get; set; }
+    public string? Alias { get; set; }
 
     /// <summary>
     /// 省Id
     /// </summary>
-    public Guid ProvinceId { get; set; }
+    public Guid ProvinceId { get; internal set; }
 
     /// <summary>
     /// 市Id
     /// </summary>
-    public Guid CityId { get; set; }
+    public Guid CityId { get; internal set; }
 
     /// <summary>
     /// 区Id
     /// </summary>
-    public Guid DistrictId { get; set; }
+    public Guid DistrictId { get; internal set; }
 
     /// <summary>
     /// 乡镇Id
     /// </summary>
-    public Guid StreetId { get; set; }
+    public Guid StreetId { get; internal set; }
 }
